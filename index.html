@@ -135,12 +135,6 @@ body {
 .gfx-steps-end{display:flex;flex-direction:column;align-items:center;margin-top:38px}
 .gfx-arrow{color:var(--gold);margin-bottom:10px}
 
-/* --- mentions de risque (même traitement que le bloc rémunération) --- */
-.gfx-risk{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:14px;padding:34px}
-.gfx-risk ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:24px 44px}
-.gfx-risk li{font-size:.95rem;line-height:1.62;color:#3b4a63;font-weight:300}
-.gfx-risk li b{display:block;font-weight:500;color:var(--gold);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
-
 /* --- rassurance sous le formulaire --- */
 .gfx-formnote{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;margin-top:26px;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#8892A6}
 
@@ -149,7 +143,6 @@ body {
   .gfx-steps{grid-template-columns:1fr;gap:34px}
   .gfx-steps>div:not(:last-child):after{right:auto;left:18px;top:auto;bottom:-24px;transform:rotate(135deg)}
   .gfx-releve th,.gfx-releve td{padding:12px 14px;font-size:.86rem}
-  .gfx-risk ul{grid-template-columns:1fr;gap:20px}
   .gfx-sit-nav{grid-template-columns:1fr;gap:12px}
   .gfx-sit-tab{display:flex;align-items:center;gap:16px;padding:16px 20px}
   .gfx-sit-tab span{margin-bottom:0;width:34px;height:34px;flex:0 0 auto}
@@ -479,12 +472,12 @@ body {
     <div>
       <div class="st"><i>1</i><span>Immédiat</span></div>
       <h4>Le guide par email</h4>
-      <p>Vous recevez le guide, ainsi que le prénom, le nom et la photo du conseiller qui vous appellera.</p>
+      <p>Vous recevez un guide complet sur les SCPI : ce qui a changé depuis 2022, les critères de sélection et la fiscalité.</p>
     </div>
     <div>
-      <div class="st"><i>2</i><span>Sous 24 à 48 h</span></div>
-      <h4>Appel de 20 minutes</h4>
-      <p>Il vous demande ce que vous détenez, depuis quand et dans quel cadre fiscal. Rien à signer pendant cet appel.</p>
+      <div class="st"><i>2</i><span>Si vous le souhaitez</span></div>
+      <h4>Un appel de 20 minutes</h4>
+      <p>Vous pouvez en rester au guide. Si vous voulez aller plus loin, un conseiller échange avec vous sur votre situation. Rien à signer.</p>
     </div>
     <div>
       <div class="st"><i>3</i><span>Sous 5 jours</span></div>
@@ -525,17 +518,24 @@ body {
 <section class="scpi-2025-features_section background-color-bleu-clair"><div class="padding-global"><div class="container-large"><div class="padding-section-medium">
 <div class="gfx w-embed">
   <span class="gfx-eyebrow">• AVANT D&#x27;INVESTIR</span>
-  <h2 class="gfx-h" style="font-size:2.1rem">Six choses à savoir avant de souscrire</h2>
-  <p style="font-weight:300;color:#3b4a63;max-width:46em;margin:0 0 30px">Une SCPI n&#x27;est pas un livret d&#x27;épargne. Si l&#x27;un de ces six points vous pose un problème, dites-le pendant l&#x27;appel et nous en resterons là.</p>
-  <div class="gfx-risk">
-    <ul>
-      <li><b>Perte en capital</b>L&#x27;investissement en SCPI comporte un risque de perte en capital. Le capital investi n&#x27;est pas garanti.</li>
-      <li><b>Revenus non garantis</b>Les loyers qui vous sont versés peuvent monter comme baisser, selon les loyers encaissés et les locaux qui restent vides.</li>
-      <li><b>Liquidité non garantie</b>Revendre vos parts suppose un acheteur en face. Votre demande peut rester en attente.</li>
-      <li><b>Performances passées</b>Elles ne préjugent pas des performances futures, y compris pour les chiffres présentés sur cette page.</li>
-      <li><b>Horizon de 8 à 10 ans</b>C&#x27;est la durée conseillée. Les frais d&#x27;entrée mettent plusieurs années à être rattrapés, et une sortie rapide se termine souvent par une perte.</li>
-      <li><b>Documentation à lire</b>Avant toute souscription : note d&#x27;information, statuts, document d&#x27;informations clés et dernier bulletin trimestriel de la SCPI concernée.</li>
-    </ul>
+  <h2 class="gfx-h" style="font-size:2.1rem">Trois choses à savoir avant de souscrire</h2>
+  <p style="font-weight:300;color:#3b4a63;max-width:46em;margin:0 0 32px">Une SCPI n&#x27;est pas un livret d&#x27;épargne. Si l&#x27;un de ces points vous pose un problème, dites-le nous et nous en resterons là.</p>
+  <div class="gfx-cols">
+    <div class="gfx-col">
+      <span class="gfx-eyebrow">LIQUIDITÉ</span>
+      <h4>Revendre suppose un acheteur en face</h4>
+      <p>Le retrait ou la cession de vos parts dépend de l&#x27;existence d&#x27;une contrepartie. Votre demande peut rester en attente, sans délai garanti.</p>
+    </div>
+    <div class="gfx-col">
+      <span class="gfx-eyebrow">HORIZON</span>
+      <h4>8 à 10 ans minimum</h4>
+      <p>C&#x27;est la durée conseillée. Les frais d&#x27;entrée mettent plusieurs années à être rattrapés, et une sortie rapide se termine souvent par une perte.</p>
+    </div>
+    <div class="gfx-col">
+      <span class="gfx-eyebrow">DOCUMENTATION</span>
+      <h4>À lire avant de signer</h4>
+      <p>Note d&#x27;information, statuts, document d&#x27;informations clés et dernier bulletin trimestriel de la SCPI concernée.</p>
+    </div>
   </div>
 </div>
 </div></div></div></section>
@@ -543,7 +543,7 @@ body {
 <!-- =========================================================
      12. FORMULAIRE  (Typeform identique + hidden fields Google Ads)
      ========================================================= -->
-<section id="typeform-section" class="scpi-2025-typeform_section"><div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div data-w-id="af41d4d7-de72-6dd9-3286-4a02de249b32" style="opacity:0" class="w-layout-grid scpi-2025-typeform_component"><div class="scpi-2025-typeform_text-container"><h2 class="heading-style-h2">Recevoir le guide SCPI</h2><p class="text-size-medium">Vous le recevez par email. Un conseiller vous rappelle ensuite sous 24 à 48 heures ouvrées, sans engagement.</p></div><div class="scpi-2025_typeform-container"><div class="scpi-2025_typeform w-embed w-script"><div id="tf-embed" data-tf-live="01JYNG0TQP74PY4PS3330V95G8" style="min-height:540px"></div>
+<section id="typeform-section" class="scpi-2025-typeform_section"><div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div data-w-id="af41d4d7-de72-6dd9-3286-4a02de249b32" style="opacity:0" class="w-layout-grid scpi-2025-typeform_component"><div class="scpi-2025-typeform_text-container"><h2 class="heading-style-h2">Recevoir le guide SCPI</h2><p class="text-size-medium">Vous le recevez par email. Si vous souhaitez en parler, un conseiller vous rappelle sous 24 à 48 heures ouvrées, sans engagement.</p></div><div class="scpi-2025_typeform-container"><div class="scpi-2025_typeform w-embed w-script"><div id="tf-embed" data-tf-live="01JYNG0TQP74PY4PS3330V95G8" style="min-height:540px"></div>
 <script>
 /* Les champs cachés doivent être posés AVANT le chargement de embed.js.
    Créez d'abord ces hidden fields dans le Typeform : gclid, wbraid, utm_source, utm_campaign, utm_term. */
