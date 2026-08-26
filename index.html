@@ -81,13 +81,13 @@ body {
 .gfq{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:330px;display:flex;flex-direction:column}
 #gfq-hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
 .gfq-bar{height:4px;background:#EEF1F6;flex:0 0 auto}
-.gfq-bar span{display:block;height:100%;width:16.6%;background:var(--navy);transition:width .35s cubic-bezier(.4,0,.2,1)}
+.gfq-bar span{display:block;height:100%;width:16.6%;background:#1B44AA;transition:width .35s cubic-bezier(.4,0,.2,1)}
 #gfq-form{flex:1 1 auto;display:flex;align-items:center;padding:44px 46px 54px}
 .gfq-step{display:none;width:100%;animation:gfqIn .3s ease}
 .gfq-step.is-active{display:block}
 @keyframes gfqIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .gfq-q{display:flex;align-items:flex-start;gap:10px;font-family:'Roboto',sans-serif;font-size:1.22rem;font-weight:500;color:var(--navy);line-height:1.4;margin:0 0 24px}
-.gfq-q .n{flex:0 0 auto;width:20px;height:20px;margin-top:4px;border-radius:4px;background:var(--navy);color:#fff;font-size:.68rem;display:flex;align-items:center;justify-content:center;font-weight:500}
+.gfq-q .n{flex:0 0 auto;width:20px;height:20px;margin-top:4px;border-radius:4px;background:#1B44AA;color:#fff;font-size:.68rem;display:flex;align-items:center;justify-content:center;font-weight:500}
 .gfq-q i{font-style:normal;color:var(--gold);margin-left:4px}
 .gfq-choices{display:grid;gap:10px;max-width:420px;margin-bottom:26px}
 .gfq-choice{
@@ -96,35 +96,39 @@ body {
   font-family:'Roboto',sans-serif;font-size:1rem;color:var(--navy);transition:all .12s ease;
 }
 .gfq-choice .k{flex:0 0 auto;width:22px;height:22px;border-radius:4px;background:#fff;border:1px solid #C9D3E2;font-size:.72rem;display:flex;align-items:center;justify-content:center;color:#5B6B84}
-.gfq-choice:hover{border-color:var(--navy);background:#EAF0F8}
-.gfq-choice.is-picked{border-color:var(--navy);background:#fff;box-shadow:0 0 0 2px var(--navy) inset}
-.gfq-choice.is-picked .k{background:var(--navy);color:#fff;border-color:var(--navy)}
+.gfq-choice:hover{border-color:#1B44AA;background:#EAF0F8}
+.gfq-choice.is-picked{border-color:#1B44AA;background:#fff;box-shadow:0 0 0 2px #1B44AA inset}
+.gfq-choice.is-picked .k{background:#1B44AA;color:#fff;border-color:#1B44AA}
 .gfq-input{
   width:100%;max-width:520px;padding:6px 2px 10px;border:0;border-bottom:1.5px solid #C9D3E2;
   background:transparent;font-family:'Roboto',sans-serif;font-size:1.32rem;color:var(--navy);
   border-radius:0;transition:border-color .15s ease;
 }
 .gfq-input::placeholder{color:#AEB9CB;font-weight:300}
-.gfq-input:focus{outline:0;border-bottom-color:var(--navy)}
+.gfq-input:focus{outline:0;border-bottom-color:#1B44AA}
 .gfq-tel{display:flex;align-items:center;gap:12px;max-width:520px}
 .gfq-flag{flex:0 0 auto;font-size:1.05rem;color:#5B6B84;padding-bottom:10px;border-bottom:1.5px solid #C9D3E2}
 .gfq-actions{display:flex;align-items:center;gap:14px;margin-top:26px}
 .gfq-ok,.gfq-send{
-  border:0;border-radius:6px;background:var(--navy);color:#fff;cursor:pointer;
-  font-family:'Roboto',sans-serif;font-weight:500;padding:10px 22px;font-size:.95rem;transition:background .15s ease;
+  border:0;border-radius:5px;background:#1B44AA;color:#fff;cursor:pointer;
+  font-family:'Roboto',sans-serif;font-weight:700;padding:11px 24px;font-size:.95rem;
+  letter-spacing:.01em;transition:background .15s ease;
 }
-.gfq-send{padding:12px 30px;font-size:1rem}
-.gfq-ok:hover,.gfq-send:hover{background:#2D3E5F}
+.gfq-send{padding:12px 30px;font-size:1rem;font-weight:500}
+.gfq-ok:hover,.gfq-send:hover{background:#163890}
+.gfq-ok:active,.gfq-send:active{background:#122F7C}
 .gfq-ok:disabled,.gfq-send:disabled{opacity:.55;cursor:default}
 .gfq-hint{font-size:.76rem;color:#8A97AC}
 .gfq-hint b{font-weight:500;color:#5B6B84}
 .gfq-err{margin:14px 0 0;font-size:.82rem;color:#C0563A;min-height:1em}
 .gfq-pager{position:absolute;right:18px;bottom:16px;display:flex;gap:6px}
 .gfq-pager button{
-  width:32px;height:28px;border:0;border-radius:5px;background:var(--navy);color:#fff;cursor:pointer;
-  font-size:.9rem;line-height:1;transition:opacity .15s ease;
+  width:34px;height:30px;border:0;border-radius:5px;background:#1B44AA;color:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;padding:0;transition:background .15s ease;
 }
-.gfq-pager button:disabled{opacity:.35;cursor:default}
+.gfq-pager button svg{width:13px;height:9px;display:block}
+.gfq-pager button:hover:not(:disabled){background:#163890}
+.gfq-pager button:disabled{background:#C8D2EA;color:#93A9D6;cursor:default}
 .gfq-done{padding:46px 46px 50px}
 .gfq-done h3{font-family:'Playfair Display',Georgia,serif;font-size:1.9rem;font-weight:500;color:var(--navy);margin:0 0 14px;line-height:1.2}
 .gfq-done p{font-size:1rem;line-height:1.65;color:#3b4a63;font-weight:300;margin:0 0 14px}
@@ -613,8 +617,8 @@ body {
     </form>
 
     <div class="gfq-pager">
-      <button type="button" id="gfq-prev" aria-label="Question précédente">&#8963;</button>
-      <button type="button" id="gfq-next" aria-label="Question suivante">&#8964;</button>
+      <button type="button" id="gfq-prev" aria-label="Question précédente"><svg viewBox="0 0 16 10" aria-hidden="true"><path d="M1.5 8L8 2l6.5 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" id="gfq-next" aria-label="Question suivante"><svg viewBox="0 0 16 10" aria-hidden="true"><path d="M1.5 2L8 8l6.5-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
 
     <!-- confirmation -->
@@ -791,10 +795,18 @@ body {
     delete data.societe_site;
     data.page = window.location.pathname + window.location.search;
 
-    fetch(form.dataset.endpoint, {
-      method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)
-    }).then(function(r){
+    var endpoint = form.dataset.endpoint || '';
+    var demo = !endpoint || endpoint.indexOf('REMPLACER') > -1;
+
+    var envoi = demo
+      ? Promise.resolve({ok:true})
+      : fetch(endpoint, {
+          method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)
+        });
+
+    envoi.then(function(r){
       if(!r.ok) throw new Error('HTTP ' + r.status);
+      if(demo) console.info('[formulaire] endpoint non configuré, envoi simulé', data);
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({event:'generate_lead', form:'guide_scpi', situation:data.situation, montant:data.montant});
       var url = document.getElementById('gfq-redirect').value;
@@ -806,7 +818,7 @@ body {
       box.scrollIntoView({behavior:'smooth', block:'center'});
     }).catch(function(){
       btn.disabled = false; btn.textContent = 'Envoyer';
-      err('L\u2019envoi a échoué. Réessayez ou appelez le 05 57 22 24 90.');
+      err('L\u2019envoi n\u2019a pas abouti. Réessayez, ou appelez-nous au 05 57 22 24 90.');
     });
   }
 
