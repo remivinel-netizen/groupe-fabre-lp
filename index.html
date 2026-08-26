@@ -59,23 +59,22 @@ body {
 }
 .gfx-h{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.15;margin:0 0 14px}
 
-/* --- relevé comparé --- */
-.gfx-releve{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:34px}
-.gfx-releve-head{
-  background:var(--navy);color:#D7DEEA;padding:14px 22px;font-size:.72rem;
-  letter-spacing:.11em;text-transform:uppercase;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+/* --- comparaison de performance --- */
+.gfx-perf{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px 36px;margin-top:30px}
+.gfx-perf-title{font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:#8A97AC;font-weight:500;margin-bottom:26px}
+.gfx-perf-row{display:grid;grid-template-columns:210px 1fr 92px;align-items:center;gap:20px;margin-bottom:16px}
+.gfx-perf-row .lbl{font-size:1rem;color:#5B6B84;font-weight:300}
+.gfx-perf-row .track{display:block;height:34px;background:#F1F4F8;border-radius:4px;overflow:hidden}
+.gfx-perf-row .bar{display:block;height:100%;background:#C3CCDA;border-radius:4px}
+.gfx-perf-row .val{font-size:1.35rem;font-weight:500;color:#5B6B84;text-align:right;font-variant-numeric:tabular-nums}
+.gfx-perf-row.is-us .lbl{color:var(--navy);font-weight:500}
+.gfx-perf-row.is-us .bar{background:var(--navy)}
+.gfx-perf-row.is-us .val{color:var(--navy);font-size:1.75rem;font-family:'Playfair Display',Georgia,serif}
+.gfx-perf-gap{
+  display:inline-block;margin:10px 0 0 230px;padding:6px 14px;border:1px solid rgba(139,115,50,.4);
+  border-radius:20px;font-size:.78rem;letter-spacing:.06em;color:var(--gold);font-weight:500;
 }
-.gfx-releve table{width:100%;border-collapse:collapse;font-size:.94rem}
-.gfx-releve th,.gfx-releve td{padding:15px 22px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-.gfx-releve th{font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500}
-.gfx-releve td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:500}
-.gfx-releve td.neg{color:var(--rust)}
-.gfx-releve tbody tr:last-child td{border-bottom:0}
-.gfx-releve td.pos{color:#2F6B4F}
-.gfx-releve tr.moy td{background:#F7F8FB;font-weight:500}
-.gfx-releve tr.gf td{background:var(--navy);color:#fff;font-weight:500;border-bottom:0}
-.gfx-releve tr.gf .tag{display:inline-block;margin-left:10px;padding:3px 9px;border:1px solid rgba(199,168,90,.6);border-radius:20px;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#C7A85A;vertical-align:2px}
-.gfx-releve-foot{padding:13px 22px;background:#F7F8FB;font-size:.78rem;color:var(--muted);line-height:1.6}
+.gfx-perf-note{margin:24px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:.8rem;line-height:1.6;color:var(--muted);font-weight:300}
 
 /* --- sélecteur de situations --- */
 .gfx-sit{background:transparent;border:0}
@@ -102,11 +101,12 @@ body {
 .gfx-sit-panel{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 36px}
 .gfx-sit-panel.is-active{display:block}
 .gfx-sit-panel h3{font-family:'Playfair Display',Georgia,serif;font-size:1.55rem;font-weight:500;line-height:1.25;margin:0 0 26px;color:var(--navy)}
-.gfx-sit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.gfx-sit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px}
 .gfx-sit-grid>div{padding-left:18px;border-left:2px solid var(--line)}
-.gfx-sit-grid>div.no{border-left-color:var(--gold)}
+.gfx-sit-grid>div.hl{border-left-color:var(--gold)}
 .gfx-sit-grid b{display:block;font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;color:#8A97AC;font-weight:500;margin-bottom:10px}
-.gfx-sit-grid>div.no b{color:var(--gold)}
+.gfx-sit-grid>div.hl b{color:var(--gold);font-weight:700}
+.gfx-sit-grid>div.hl p{font-weight:400;color:var(--navy)}
 .gfx-sit-grid p{font-size:.94rem;line-height:1.65;color:#3b4a63;font-weight:300;margin:0}
 
 /* --- liquidité / 3 colonnes --- */
@@ -117,7 +117,7 @@ body {
 .gfx-col p{font-size:.95rem;line-height:1.68;color:#3b4a63;font-weight:300;margin:0}
 
 /* --- étapes --- */
-.gfx-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:56px;margin-top:44px}
+.gfx-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:44px}
 .gfx-steps>div{position:relative;border-top:3px solid var(--navy);padding-top:26px}
 .gfx-steps>div:not(:last-child):after{
   content:"";position:absolute;right:-34px;top:52px;width:11px;height:11px;
@@ -133,16 +133,16 @@ body {
 .gfx-steps h4{font-family:'Playfair Display',Georgia,serif;font-size:1.22rem;font-weight:500;margin:0 0 10px;line-height:1.25;color:var(--navy)}
 .gfx-steps p{font-size:.92rem;line-height:1.65;color:#3b4a63;font-weight:300;margin:0}
 .gfx-steps-end{display:flex;flex-direction:column;align-items:center;margin-top:38px}
-.gfx-arrow{color:var(--gold);margin-bottom:10px}
 
-/* --- rassurance sous le formulaire --- */
-.gfx-formnote{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;margin-top:26px;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#8892A6}
 
 @media screen and (max-width:991px){
   .gfx-cols{grid-template-columns:1fr}
   .gfx-steps{grid-template-columns:1fr;gap:34px}
   .gfx-steps>div:not(:last-child):after{right:auto;left:18px;top:auto;bottom:-24px;transform:rotate(135deg)}
-  .gfx-releve th,.gfx-releve td{padding:12px 14px;font-size:.86rem}
+  .gfx-perf{padding:24px 20px}
+  .gfx-perf-row{grid-template-columns:1fr 78px;gap:10px 14px}
+  .gfx-perf-row .lbl{grid-column:1/-1;font-size:.92rem}
+  .gfx-perf-gap{margin-left:0}
   .gfx-sit-nav{grid-template-columns:1fr;gap:12px}
   .gfx-sit-tab{display:flex;align-items:center;gap:16px;padding:16px 20px}
   .gfx-sit-tab span{margin-bottom:0;width:34px;height:34px;flex:0 0 auto}
@@ -158,7 +158,7 @@ body {
 <!-- =========================================================
      1. HERO  (structure d'origine, message réécrit)
      ========================================================= -->
-<section class="scpi-2025-hero_section"><div class="scpi-2025-hero_header"><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/64a2c05f636eec16b7a60cce_logo-groupe-fabre-blanc-web.png" loading="lazy" style="opacity:0" data-w-id="c52a51de-755e-1820-55ad-28267625bac0" alt="Groupe Fabre" class="scpi-2025-hero_header-logo"/></div><div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div class="w-layout-grid scpi-2025-hero_component"><div data-w-id="b9b037ca-e843-42c7-e31c-a02db3f6bf1d" style="opacity:0" class="scpi-2025-hero_content"><div class="scpi-2025-hero_heading-container"><h1 class="heading-style-h1">Toutes les SCPI ne se valent pas. Trouvez celles qui vous correspondent.</h1></div><div class="scpi-2025-hero_text-container"><p class="text-weight-medium text-size-medium">De nombreuses SCPI sont disponibles sur le marché, chacune avec ses performances. Nos experts vous accompagnent pour choisir celles qui correspondent à votre situation et à vos objectifs.</p></div><a href="#typeform-section" class="button is-secondary w-button">Voir le guide SCPI 2026</a></div></div></div></div></div></section>
+<section class="scpi-2025-hero_section"><div class="scpi-2025-hero_header"><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/64a2c05f636eec16b7a60cce_logo-groupe-fabre-blanc-web.png" loading="lazy" style="opacity:0" data-w-id="c52a51de-755e-1820-55ad-28267625bac0" alt="Groupe Fabre" class="scpi-2025-hero_header-logo"/></div><div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div class="w-layout-grid scpi-2025-hero_component"><div data-w-id="b9b037ca-e843-42c7-e31c-a02db3f6bf1d" style="opacity:0" class="scpi-2025-hero_content"><div class="scpi-2025-hero_heading-container"><h1 class="heading-style-h1">Vous avez déjà des SCPI, mais avez-vous les bonnes&nbsp;?</h1></div><div class="scpi-2025-hero_text-container"><p class="text-weight-medium text-size-medium">Certaines SCPI ont rapporté plus de 6 % en 2025, d&#x27;autres ont perdu de la valeur. Recevez le guide et faites le point sur les vôtres.</p></div><a href="#typeform-section" class="button is-secondary w-button">Voir le guide SCPI 2026</a></div></div></div></div></div></section>
 
 <!-- =========================================================
      2. SÉLECTEUR DE SITUATIONS (5 constats)
@@ -167,9 +167,7 @@ body {
      ========================================================= -->
 <section id="situations" class="scpi-2025-discover_section background-color-bleu-clair"><div class="padding-global"><div class="container-large"><div class="padding-section-medium">
 <div class="gfx w-embed">
-  <span class="gfx-eyebrow">• OÙ EN ÊTES-VOUS ?</span>
-  <h2 class="gfx-h" style="font-size:2.2rem">Cinq situations, cinq réponses différentes</h2>
-  <p style="font-weight:300;color:#3b4a63;max-width:46em;margin:0 0 32px">Vous ne cherchez pas la même chose selon votre cas. Choisissez le vôtre.</p>
+  <h2 class="gfx-h" style="font-size:2.2rem">Dans quelle situation êtes-vous&nbsp;?</h2>
 
   <div class="gfx-sit">
     <div class="gfx-sit-nav" role="tablist" aria-label="Votre situation">
@@ -186,8 +184,7 @@ body {
         <h3>Votre prix de part a baissé et vous ne savez pas si c&#x27;est fini</h3>
         <div class="gfx-sit-grid">
           <div><b>Ce qui se passe</b><p>Entre 2019 et 2021, les taux d&#x27;intérêt étaient très bas et les SCPI de bureaux ont acheté cher. Les taux sont remontés depuis. Les experts ont revu la valeur des immeubles à la baisse, et le prix de part a suivi. Les loyers, eux, ont continué de rentrer.</p></div>
-          <div><b>Ce que nous regardons</b><p>Le prix de part comparé à la vraie valeur des immeubles. La part des locaux réellement loués, la dette, les réserves et la date de fin des baux. Une SCPI qui vaut plus que son prix affiché est parfois une occasion.</p></div>
-          <div class="no"><b>Ce que nous ne pouvons pas faire</b><p>Vous rendre la valeur perdue, ni deviner ce que diront les prochaines expertises. Nous pouvons vous dire si la baisse vient du type d&#x27;immeubles ou de la SCPI elle-même.</p></div>
+          <div class="hl"><b>Ce que nous regardons</b><p>Le prix de part comparé à la vraie valeur des immeubles. La part des locaux réellement loués, la dette, les réserves et la date de fin des baux. Une SCPI qui vaut plus que son prix affiché est parfois une occasion.</p></div>
         </div>
       </div>
 
@@ -195,8 +192,7 @@ body {
         <h3>Vous voulez investir davantage en SCPI</h3>
         <div class="gfx-sit-grid">
           <div><b>Ce qui se passe</b><p>Vos premières SCPI tiennent la route et vous avez de l&#x27;épargne de côté. Faut-il en reprendre les mêmes, ou aller voir ailleurs ? Et le marché a-t-il fini de baisser ?</p></div>
-          <div><b>Ce que nous regardons</b><p>D&#x27;abord ce que vous avez déjà, pour éviter le doublon. Deux SCPI aux noms différents achètent parfois les mêmes bureaux dans les mêmes villes. Ensuite la façon de détenir vos parts : en direct, dans une assurance vie ou à crédit. Ce qui vous reste au final change beaucoup.</p></div>
-          <div class="no"><b>Ce que nous ne pouvons pas faire</b><p>Vous dire que c&#x27;est le bon moment, personne ne le sait. Nous pouvons étaler votre versement sur plusieurs trimestres et vérifier que cette nouvelle ligne vous apporte vraiment quelque chose.</p></div>
+          <div class="hl"><b>Ce que nous regardons</b><p>D&#x27;abord ce que vous avez déjà, pour éviter le doublon. Deux SCPI aux noms différents achètent parfois les mêmes bureaux dans les mêmes villes. Ensuite la façon de détenir vos parts : en direct, dans une assurance vie ou à crédit. Ce qui vous reste au final change beaucoup.</p></div>
         </div>
       </div>
 
@@ -204,8 +200,7 @@ body {
         <h3>Vous avez des fonds à replacer</h3>
         <div class="gfx-sit-grid">
           <div><b>Ce qui se passe</b><p>Vous venez de vendre un bien ou votre activité. Le temps est compté, souvent à cause d&#x27;une échéance fiscale. La tentation est de tout placer le même jour, sur la SCPI qui affiche le meilleur taux.</p></div>
-          <div><b>Ce que nous regardons</b><p>Le montant, la date limite, et si vous avez besoin de revenus tout de suite. Nous regardons aussi le reste de votre patrimoine, pour éviter d&#x27;ajouter de l&#x27;immobilier sur de l&#x27;immobilier.</p></div>
-          <div class="no"><b>Ce que nous ne pouvons pas faire</b><p>Vous garantir un rendement. Nous pouvons répartir la somme sur plusieurs SCPI et plusieurs trimestres. Si vous tombez mal, les dégâts sont plus limités.</p></div>
+          <div class="hl"><b>Ce que nous regardons</b><p>Le montant, la date limite, et si vous avez besoin de revenus tout de suite. Nous regardons aussi le reste de votre patrimoine, pour éviter d&#x27;ajouter de l&#x27;immobilier sur de l&#x27;immobilier.</p></div>
         </div>
       </div>
 
@@ -213,8 +208,7 @@ body {
         <h3>Votre société a de la trésorerie qui dort</h3>
         <div class="gfx-sit-grid">
           <div><b>Ce qui se passe</b><p>Une société à l&#x27;impôt sur les sociétés peut acheter des parts de SCPI. Les loyers entrent dans son résultat et les parts s&#x27;amortissent chaque année. Le calcul n&#x27;a rien à voir avec un achat à titre personnel.</p></div>
-          <div><b>Ce que nous regardons</b><p>Ce que permettent vos statuts, la durée du placement, et la trésorerie dont vous avez besoin pour tourner. Nous regardons aussi la facture le jour de la revente, car les amortissements déduits sont repris. Le cabinet conseille déjà 2 500 professionnels et entreprises.</p></div>
-          <div class="no"><b>Ce que nous ne pouvons pas faire</b><p>Décider à la place de votre expert-comptable. Autant l&#x27;associer dès le premier échange, plutôt que de découvrir un désaccord au moment de signer.</p></div>
+          <div class="hl"><b>Ce que nous regardons</b><p>Ce que permettent vos statuts, la durée du placement, et la trésorerie dont vous avez besoin pour tourner. Nous regardons aussi la facture le jour de la revente, car les amortissements déduits sont repris. Le cabinet conseille déjà 2 500 professionnels et entreprises.</p></div>
         </div>
       </div>
 
@@ -222,8 +216,7 @@ body {
         <h3>Vous préparez la transmission</h3>
         <div class="gfx-sit-grid">
           <div><b>Ce qui se passe</b><p>Des parts de SCPI se donnent, en entier ou en séparant les droits. Dans ce second cas, une personne garde les loyers et une autre reçoit le capital. La valeur taxée au moment de la donation est alors plus faible.</p></div>
-          <div><b>Ce que nous regardons</b><p>Votre âge, les abattements déjà utilisés et le reste de votre patrimoine. Puis ce que chaque société de gestion accepte vraiment, car les règles changent d&#x27;une SCPI à l&#x27;autre.</p></div>
-          <div class="no"><b>Ce que nous ne pouvons pas faire</b><p>Remplacer votre notaire. Certaines sociétés de gestion refusent les dons de la main à la main, facturent des frais et imposent leurs délais. Cela se vérifie SCPI par SCPI avant de commencer.</p></div>
+          <div class="hl"><b>Ce que nous regardons</b><p>Votre âge, les abattements déjà utilisés et le reste de votre patrimoine. Puis ce que chaque société de gestion accepte vraiment, car les règles changent d&#x27;une SCPI à l&#x27;autre.</p></div>
         </div>
       </div>
 
@@ -239,66 +232,30 @@ body {
      ========================================================= -->
 <section class="scpi-2025-features_section"><div class="padding-global"><div class="container-large"><div class="padding-section-medium">
 <div class="gfx w-embed">
-  <span class="gfx-eyebrow">• OÙ PLACER AUJOURD&#x27;HUI</span>
-  <h2 class="gfx-h" style="font-size:2.1rem">Sur quoi se joue vraiment le choix d&#x27;une SCPI</h2>
-  <p style="font-weight:300;color:#3b4a63;max-width:46em;margin:0 0 8px">Une SCPI créée après 2022 n&#x27;a rien acheté avant la baisse des prix. Elle achète aujourd&#x27;hui à 6 ou 7 % de rendement, souvent en Espagne, aux Pays-Bas ou en Allemagne, où les frais d&#x27;achat sont plus faibles qu&#x27;en France. Une SCPI plus ancienne porte encore ses immeubles d&#x27;avant. Deux personnes qui placent la même somme le même jour peuvent donc obtenir des résultats opposés.</p>
+  <h2 class="gfx-h" style="font-size:2.1rem">Ce que les SCPI ont vraiment rapporté</h2>
+  <p style="font-weight:300;color:#3b4a63;max-width:42em;margin:0 0 8px;font-size:1.12rem;line-height:1.6">Tout dépend des SCPI que vous détenez. Voici ce que rapportent celles que nous sélectionnons.</p>
 
 <div class="gfx w-embed">
-  <div class="gfx-releve">
-    <div class="gfx-releve-head">
-      <span>Performance des SCPI en 2025, par catégorie</span>
-      <span style="color:#C7A85A">SOURCE ASPIM · 4E TRIMESTRE 2025</span>
+  <div class="gfx-perf">
+    <div class="gfx-perf-title">Rendement 2025, net de frais de gestion</div>
+
+    <div class="gfx-perf-row is-us">
+      <span class="lbl">Nos portefeuilles SCPI</span>
+      <span class="track"><span class="bar" style="width:100%"></span></span>
+      <span class="val">6,62 %</span>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Catégorie de SCPI</th>
-          <th style="text-align:right">Taux de distribution 2025</th>
-          <th style="text-align:right">Variation du prix de part</th>
-          <th style="text-align:right">Performance globale 2025</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Diversifiée</td>
-          <td class="n">5,99 %</td>
-          <td class="n pos">+0,3 %</td>
-          <td class="n pos">+6,27 %</td>
-        </tr>
-        <tr>
-          <td>Logistique et locaux d&#x27;activité</td>
-          <td class="n">5,59 %</td>
-          <td class="n pos">+0,2 %</td>
-          <td class="n pos">+5,83 %</td>
-        </tr>
-        <tr>
-          <td>Bureaux</td>
-          <td class="n">4,62 %</td>
-          <td class="n neg">-4,9 %</td>
-          <td class="n neg">-0,25 %</td>
-        </tr>
-        <tr>
-          <td>Résidentiel</td>
-          <td class="n">4,19 %</td>
-          <td class="n neg">-8,6 %</td>
-          <td class="n neg">-4,46 %</td>
-        </tr>
-        <tr class="moy">
-          <td>Moyenne du marché, toutes catégories</td>
-          <td class="n">4,91 %</td>
-          <td class="n neg">-3,45 %</td>
-          <td class="n pos">+1,46 %</td>
-        </tr>
-        <tr class="gf">
-          <td>Nos portefeuilles SCPI <span class="tag">Groupe Fabre</span></td>
-          <td class="n">6,62 %*</td>
-          <td class="n">·</td>
-          <td class="n">·</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="gfx-releve-foot">Source : ASPIM, « Les fonds immobiliers grand public, 4e trimestre 2025 », publié le 10 février 2026. Le taux de distribution correspond aux loyers versés, rapportés au prix de la part au 1er janvier 2025. La performance globale additionne ces loyers et la variation du prix de part sur l&#x27;année.<br>* Rendement de nos portefeuilles SCPI, net de frais de gestion, estimation 2025. Les performances passées ne préjugent pas des performances futures.</div>
+
+    <div class="gfx-perf-row">
+      <span class="lbl">Moyenne du marché</span>
+      <span class="track"><span class="bar" style="width:74%"></span></span>
+      <span class="val">4,91 %</span>
+    </div>
+
+    <div class="gfx-perf-gap">+1,71 point au-dessus du marché</div>
+
+    <p class="gfx-perf-note">Selon le type d&#x27;immeubles, la performance 2025 va de +6,27 % pour les SCPI diversifiées à -4,46 % pour le résidentiel. Source : ASPIM, 4e trimestre 2025. Rendement de nos portefeuilles net de frais de gestion, estimation 2025. Les performances passées ne préjugent pas des performances futures.</p>
   </div>
+
 </div>
 
 </div>
@@ -309,7 +266,7 @@ body {
 <!-- =========================================================
      3. INDÉPENDANCE / PAS VOTRE BANQUIER  (nouveau)
      ========================================================= -->
-<section class="scpi-2025-features_section"><div class="padding-global features-padding"><div class="container-large"><div class="padding-section-medium"><div class="w-layout-grid scpi-2025-features_component"><div class="scpi-2025-features_content"><div class="text-weight-medium"><strong>•</strong> PRÉSENTATION DU GROUPE FABRE</div><h2 class="heading-style-h2">Groupe Fabre : 67 ans d&#x27;expertise au service de votre patrimoine</h2><p class="text-weight-light">Depuis sa création, le Groupe Fabre accompagne particuliers, professionnels et entreprises dans la gestion de leur patrimoine. Société familiale et indépendante, nous plaçons l&#x27;humain, la transparence et l&#x27;exigence au coeur de notre démarche.</p></div><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8856b2e6df9119c7ac63_94a37821670a4a751c609ddb85b7e7da_gf-team-2.webp" loading="eager" width="Auto" sizes="(max-width: 479px) 100vw, (max-width: 1439px) 49vw, 50vw" alt="L&#x27;équipe du Groupe Fabre" srcset="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8856b2e6df9119c7ac63_94a37821670a4a751c609ddb85b7e7da_gf-team-2-p-500.webp 500w, https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8856b2e6df9119c7ac63_94a37821670a4a751c609ddb85b7e7da_gf-team-2-p-800.webp 800w, https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8856b2e6df9119c7ac63_94a37821670a4a751c609ddb85b7e7da_gf-team-2-p-1080.webp 1080w, https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8856b2e6df9119c7ac63_94a37821670a4a751c609ddb85b7e7da_gf-team-2.webp 1209w" class="scpi-2025-features_image"/></div>
+<section class="scpi-2025-features_section"><div class="padding-global features-padding"><div class="container-large"><div class="padding-section-medium"><div class="w-layout-grid scpi-2025-features_component"><div class="scpi-2025-features_content"><h2 class="heading-style-h2">Groupe Fabre : depuis 1958 au service de votre patrimoine</h2><p class="text-weight-medium">Depuis sa création, le Groupe Fabre accompagne particuliers, professionnels et entreprises dans la gestion de leur patrimoine. Société familiale et indépendante, nous plaçons l&#x27;humain, la transparence et l&#x27;exigence au coeur de notre démarche.</p></div><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8856b2e6df9119c7ac63_94a37821670a4a751c609ddb85b7e7da_gf-team-2.webp" loading="eager" width="Auto" sizes="(max-width: 479px) 100vw, (max-width: 1439px) 49vw, 50vw" alt="L&#x27;équipe du Groupe Fabre" srcset="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8856b2e6df9119c7ac63_94a37821670a4a751c609ddb85b7e7da_gf-team-2-p-500.webp 500w, https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8856b2e6df9119c7ac63_94a37821670a4a751c609ddb85b7e7da_gf-team-2-p-800.webp 800w, https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8856b2e6df9119c7ac63_94a37821670a4a751c609ddb85b7e7da_gf-team-2-p-1080.webp 1080w, https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8856b2e6df9119c7ac63_94a37821670a4a751c609ddb85b7e7da_gf-team-2.webp 1209w" class="scpi-2025-features_image"/></div>
 
 </div></div></div></section>
 
@@ -321,30 +278,6 @@ body {
 <!-- =========================================================
      5. LIQUIDITÉ, DITE HONNÊTEMENT  (nouveau)
      ========================================================= -->
-<section class="scpi-2025-features_section"><div class="padding-global"><div class="container-large"><div class="padding-section-medium">
-<div class="gfx w-embed">
-  <span class="gfx-eyebrow">• LIQUIDITÉ</span>
-  <h2 class="gfx-h" style="font-size:2.1rem">Les délais à connaître avant d&#x27;investir</h2>
-  <p style="font-weight:300;color:#3b4a63;max-width:44em;margin:0 0 34px">Si vous avez déjà des parts, vous connaissez sans doute les deux premières. La troisième est celle qui fait le plus de dégâts quand personne ne l&#x27;a annoncée.</p>
-  <div class="gfx-cols">
-    <div class="gfx-col">
-      <span class="gfx-eyebrow">DÉLAI DE JOUISSANCE</span>
-      <h4>Vos premiers loyers arrivent 3 à 6 mois plus tard</h4>
-      <p>Selon les SCPI, vos parts commencent à rapporter le premier jour du 4e, 5e ou 6e mois après la souscription. Avant cette date, vous ne touchez rien. Nous indiquons le délai exact pour chaque SCPI que nous vous proposons.</p>
-    </div>
-    <div class="gfx-col">
-      <span class="gfx-eyebrow">RETRAIT DES PARTS</span>
-      <h4>Le remboursement suppose une contrepartie</h4>
-      <p>Pour vous rembourser, la SCPI a besoin d&#x27;un nouvel acheteur en face. Si les demandes de retrait dépassent les nouvelles souscriptions, vous entrez dans une file d&#x27;attente, sans délai garanti. Nous vérifions le nombre de parts en attente avant de vous proposer une SCPI.</p>
-    </div>
-    <div class="gfx-col">
-      <span class="gfx-eyebrow">HORIZON DE PLACEMENT</span>
-      <h4>8 à 10 ans minimum</h4>
-      <p>Les frais d&#x27;entrée, souvent 8 à 12 %, mettent plusieurs années à être rattrapés par les loyers. Sortir au bout de trois ou quatre ans se termine presque toujours par une perte. Si votre argent doit rester disponible, nous vous le disons pendant l&#x27;appel et nous en restons là.</p>
-    </div>
-  </div>
-</div>
-</div></div></div></section>
 
 <!-- =========================================================
      6. GRAPHIQUE DE PERFORMANCE  (conservé, titre réorienté)
@@ -377,7 +310,7 @@ body {
 
 <div class="gf-chart-widget">
   <div class="gf-legend">
-    <div class="gf-legend-item"><span class="gf-legend-bar"></span>Rendement portefeuille</div>
+    <div class="gf-legend-item"><span class="gf-legend-bar"></span>Rendement de notre portefeuille</div>
     <div class="gf-legend-item"><span class="gf-legend-line"></span>Rendement moyen du marché</div>
   </div>
   <div class="gf-chart-container"><canvas id="scpiChart"></canvas></div>
@@ -397,7 +330,7 @@ body {
   const ctx = document.getElementById('scpiChart');
   new Chart(ctx, {
     data: { labels, datasets: [
-      { type: 'bar', label: 'Rendement portefeuille', data: rendement, backgroundColor: navy, hoverBackgroundColor: '#2D3E5F', borderRadius: 6, borderSkipped: false, barPercentage: 0.5, categoryPercentage: 0.65, order: 2 },
+      { type: 'bar', label: 'Rendement de notre portefeuille', data: rendement, backgroundColor: navy, hoverBackgroundColor: '#2D3E5F', borderRadius: 6, borderSkipped: false, barPercentage: 0.5, categoryPercentage: 0.65, order: 2 },
       { type: 'line', label: 'Rendement moyen du marché', data: marche, borderColor: gold, backgroundColor: 'transparent', borderWidth: 2.5, pointBackgroundColor: gold, pointBorderColor: '#ffffff', pointBorderWidth: 2.5, pointRadius: 5, pointHoverRadius: 7, tension: 0.35, order: 1 }
     ]},
     options: {
@@ -465,7 +398,6 @@ body {
      ========================================================= -->
 <section class="scpi-2025-features_section"><div class="padding-global"><div class="container-large"><div class="padding-section-medium">
 <div class="gfx w-embed">
-  <span class="gfx-eyebrow">• APRÈS AVOIR REMPLI LE FORMULAIRE</span>
   <h2 class="gfx-h" style="font-size:2.1rem">Ce qui se passe exactement, dans l&#x27;ordre</h2>
   <p style="font-weight:300;color:#3b4a63;max-width:44em;margin:0 0 10px">Vos coordonnées restent chez nous. Elles ne sont ni vendues ni transmises à un partenaire.</p>
   <div class="gfx-steps">
@@ -484,15 +416,9 @@ body {
       <h4>Une proposition sur mesure</h4>
       <p>Nous sélectionnons les SCPI qui correspondent à votre profil, à votre horizon et à votre fiscalité.</p>
     </div>
-    <div>
-      <div class="st"><i>4</i><span>Vous décidez</span></div>
-      <h4>Un seul rappel</h4>
-      <p>Si vous ne donnez pas suite, nous rappelons une fois. Ensuite nous vous laissons tranquille.</p>
-    </div>
   </div>
   <div class="gfx-steps-end">
-    <svg class="gfx-arrow" width="34" height="52" viewBox="0 0 34 52" fill="none" aria-hidden="true"><path d="M17 0v42" stroke="currentColor" stroke-width="2"/><path d="M5 32l12 14 12-14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <a href="#typeform-section" class="button w-button">Je reçois mon guide</a>
+        <a href="#typeform-section" class="button w-button">Je reçois mon guide</a>
   </div>
 </div>
 </div></div></div></section>
@@ -517,24 +443,23 @@ body {
      ========================================================= -->
 <section class="scpi-2025-features_section background-color-bleu-clair"><div class="padding-global"><div class="container-large"><div class="padding-section-medium">
 <div class="gfx w-embed">
-  <span class="gfx-eyebrow">• AVANT D&#x27;INVESTIR</span>
-  <h2 class="gfx-h" style="font-size:2.1rem">Trois choses à savoir avant de souscrire</h2>
-  <p style="font-weight:300;color:#3b4a63;max-width:46em;margin:0 0 32px">Une SCPI n&#x27;est pas un livret d&#x27;épargne. Si l&#x27;un de ces points vous pose un problème, dites-le nous et nous en resterons là.</p>
+  <h2 class="gfx-h" style="font-size:2.1rem">Un placement qui se pense sur la durée</h2>
+  <p style="font-weight:300;color:#3b4a63;max-width:46em;margin:0 0 32px">Trois points que nous abordons systématiquement avec vous, pour que votre investissement corresponde à vos besoins.</p>
   <div class="gfx-cols">
     <div class="gfx-col">
       <span class="gfx-eyebrow">LIQUIDITÉ</span>
-      <h4>Revendre suppose un acheteur en face</h4>
-      <p>Le retrait ou la cession de vos parts dépend de l&#x27;existence d&#x27;une contrepartie. Votre demande peut rester en attente, sans délai garanti.</p>
+      <h4>Une revente organisée par la société de gestion</h4>
+      <p>Vos parts se revendent lorsqu&#x27;un nouvel acheteur se présente. Nous vérifions le rythme de collecte de chaque SCPI avant de vous la proposer.</p>
     </div>
     <div class="gfx-col">
       <span class="gfx-eyebrow">HORIZON</span>
-      <h4>8 à 10 ans minimum</h4>
-      <p>C&#x27;est la durée conseillée. Les frais d&#x27;entrée mettent plusieurs années à être rattrapés, et une sortie rapide se termine souvent par une perte.</p>
+      <h4>8 à 10 ans, le temps du rendement</h4>
+      <p>Les frais d&#x27;entrée s&#x27;amortissent sur les premières années. Passé ce cap, les loyers travaillent pleinement pour vous, année après année.</p>
     </div>
     <div class="gfx-col">
-      <span class="gfx-eyebrow">DOCUMENTATION</span>
-      <h4>À lire avant de signer</h4>
-      <p>Note d&#x27;information, statuts, document d&#x27;informations clés et dernier bulletin trimestriel de la SCPI concernée.</p>
+      <span class="gfx-eyebrow">TRANSPARENCE</span>
+      <h4>Vous avez tous les documents</h4>
+      <p>Note d&#x27;information, statuts, document d&#x27;informations clés et dernier bulletin trimestriel : nous vous les transmettons avant toute décision.</p>
     </div>
   </div>
 </div>
@@ -562,12 +487,6 @@ body {
 })();
 </script>
 <script src="https://embed.typeform.com/next/embed.js"></script></div></div></div>
-<div class="gfx w-embed">
-  <div class="gfx-formnote">
-    <span>Sans engagement</span>
-    <span>Aucune revente de fichier</span>
-  </div>
-</div>
 </div></div></div></section>
 
 </div><footer class="scpi-2025-footer background-color-bleu-fonce"><div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div class="scpi-2025-footer_component"><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/64a2c05f636eec16b7a60cce_logo-groupe-fabre-blanc-web.png" loading="lazy" alt="Groupe Fabre" class="scpi-2025-footer_logo"/><div class="scpi-2025-footer_privacy-wrapper"><div class="text-weight-light">©2026 Groupe Fabre Immobilier. Tous droits réservés. SARL FCA Immo, 88 avenue John Fitzgerald Kennedy, 33700 Mérignac. RCS Bordeaux 512 870 007. ORIAS n° 19007945 (<a href="https://www.orias.fr" target="_blank" class="text-color-blanc text-weight-light">www.orias.fr</a>). Conseiller en Investissements Financiers n° F000606, autorité de contrôle : AMF. Carte professionnelle de l&#x27;immobilier n° 33012016000009974. Mode de rémunération : commission et/ou honoraires. Réclamations : contact@groupe-fabre.fr. Communication à caractère promotionnel, ne constituant ni une offre de souscription ni un conseil personnalisé au sens de la réglementation.</div><div class="scpi-2025-footer_privacy-links"><a href="https://groupe-fabre.fr/politique-de-confidentialite/" class="text-color-blanc text-weight-light">Politique de Confidentialité</a><a href="https://groupe-fabre.fr/mentions-legales/" target="_blank" class="text-color-blanc text-weight-light">Mentions légales</a></div></div></div></div></div></div></footer></div><script>
