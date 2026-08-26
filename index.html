@@ -170,12 +170,99 @@ body {
 .gfx-sit-grid>div.hl p{font-weight:400;color:var(--navy)}
 .gfx-sit-grid p{font-size:.94rem;line-height:1.65;color:#3b4a63;font-weight:300;margin:0}
 
-/* --- liquidité / 3 colonnes --- */
-.gfx-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.gfx-col{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px}
-.gfx-col .gfx-eyebrow{margin-bottom:10px}
-.gfx-col h4{font-family:'Playfair Display',Georgia,serif;font-size:1.22rem;font-weight:500;line-height:1.25;margin:0 0 12px}
-.gfx-col p{font-size:.95rem;line-height:1.68;color:#3b4a63;font-weight:300;margin:0}
+/* --- formulaire question par question --- */
+.gfq{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:330px;display:flex;flex-direction:column}
+#gfq-hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.gfq-bar{height:4px;background:#EEF1F6;flex:0 0 auto}
+.gfq-bar span{display:block;height:100%;width:16.6%;background:#1B44AA;transition:width .35s cubic-bezier(.4,0,.2,1)}
+#gfq-form{flex:1 1 auto;display:flex;align-items:center;padding:44px 46px 54px}
+.gfq-step{display:none;width:100%;animation:gfqIn .3s ease}
+.gfq-step.is-active{display:block}
+@keyframes gfqIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.gfq-q{display:flex;align-items:flex-start;gap:10px;font-family:'Roboto',sans-serif;font-size:1.22rem;font-weight:500;color:var(--navy);line-height:1.4;margin:0 0 24px}
+.gfq-q .n{flex:0 0 auto;width:20px;height:20px;margin-top:4px;border-radius:4px;background:#1B44AA;color:#fff;font-size:.68rem;display:flex;align-items:center;justify-content:center;font-weight:500}
+.gfq-q i{font-style:normal;color:var(--gold);margin-left:4px}
+.gfq-choices{display:grid;gap:10px;max-width:420px;margin-bottom:26px}
+.gfq-choice{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;
+  padding:13px 16px;border:1px solid #C9D3E2;border-radius:8px;background:#F4F7FB;
+  font-family:'Roboto',sans-serif;font-size:1rem;color:var(--navy);transition:all .12s ease;
+}
+.gfq-choice .k{flex:0 0 auto;width:22px;height:22px;border-radius:4px;background:#fff;border:1px solid #C9D3E2;font-size:.72rem;display:flex;align-items:center;justify-content:center;color:#5B6B84}
+.gfq-choice:hover{border-color:#1B44AA;background:#EAF0F8}
+.gfq-choice.is-picked{border-color:#1B44AA;background:#fff;box-shadow:0 0 0 2px #1B44AA inset}
+.gfq-choice.is-picked .k{background:#1B44AA;color:#fff;border-color:#1B44AA}
+.gfq-input{
+  width:100%;max-width:520px;padding:6px 2px 10px;border:0;border-bottom:1.5px solid #C9D3E2;
+  background:transparent;font-family:'Roboto',sans-serif;font-size:1.32rem;color:var(--navy);
+  border-radius:0;transition:border-color .15s ease;
+}
+.gfq-input::placeholder{color:#AEB9CB;font-weight:300}
+.gfq-input:focus{outline:0;border-bottom-color:#1B44AA}
+.gfq-tel{display:flex;align-items:center;gap:12px;max-width:520px}
+.gfq-cc{
+  flex:0 0 auto;appearance:none;border:0;border-bottom:1.5px solid #C9D3E2;background:transparent;
+  font-family:'Roboto',sans-serif;font-size:1.05rem;color:#5B6B84;padding:6px 20px 10px 2px;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235B6B84' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 2px center;
+}
+.gfq-cc:focus{outline:0;border-bottom-color:#1B44AA}
+.gfq-actions{display:flex;align-items:center;gap:14px;margin-top:26px}
+.gfq-ok,.gfq-send{
+  border:0;border-radius:5px;background:#1B44AA;color:#fff;cursor:pointer;
+  font-family:'Roboto',sans-serif;font-weight:700;padding:11px 24px;font-size:.95rem;
+  letter-spacing:.01em;transition:background .15s ease;
+}
+.gfq-send{padding:12px 30px;font-size:1rem;font-weight:500}
+.gfq-ok:hover,.gfq-send:hover{background:#163890}
+.gfq-ok:active,.gfq-send:active{background:#122F7C}
+.gfq-ok:disabled,.gfq-send:disabled{opacity:.55;cursor:default}
+.gfq-hint{font-size:.76rem;color:#8A97AC}
+.gfq-hint b{font-weight:500;color:#5B6B84}
+.gfq-err{margin:14px 0 0;font-size:.82rem;color:#C0563A;min-height:1em}
+.gfq-pager{position:absolute;right:18px;bottom:16px;display:flex;gap:6px}
+.gfq-pager button{
+  width:34px;height:30px;border:0;border-radius:5px;background:#1B44AA;color:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;padding:0;transition:background .15s ease;
+}
+.gfq-pager button svg{width:13px;height:9px;display:block}
+.gfq-pager button:hover:not(:disabled){background:#163890}
+.gfq-pager button:disabled{background:#C8D2EA;color:#93A9D6;cursor:default}
+.gfq-wait{padding:44px 46px;font-size:1.05rem;color:#3b4a63;font-weight:300}
+
+/* --- sélecteur de situations --- */
+.gfx-sit{background:transparent;border:0}
+.gfx-sit-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:30px}
+.gfx-sit-tab{
+  appearance:none;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:24px 22px;text-align:left;cursor:pointer;font-family:'Roboto',sans-serif;font-size:.97rem;
+  color:#5B6B84;line-height:1.35;position:relative;
+  transition:background .15s ease,color .15s ease,border-color .15s ease,transform .15s ease;
+}
+.gfx-sit-tab span{
+  display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;
+  background:#EEF1F6;color:var(--navy);font-family:'Playfair Display',Georgia,serif;
+  font-size:1.1rem;letter-spacing:0;margin-bottom:16px;transition:background .15s ease,color .15s ease;
+}
+.gfx-sit-tab:hover{border-color:#B9C4D4;transform:translateY(-2px)}
+.gfx-sit-tab.is-active{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:500}
+.gfx-sit-tab.is-active span{background:var(--gold);color:#fff}
+.gfx-sit-tab.is-active:after{
+  content:"";position:absolute;left:50%;bottom:-10px;width:18px;height:18px;
+  background:var(--navy);transform:translateX(-50%) rotate(45deg);
+}
+.gfx-sit-tab:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+.gfx-sit-panel{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 36px}
+.gfx-sit-panel.is-active{display:block}
+.gfx-sit-panel h3{font-family:'Playfair Display',Georgia,serif;font-size:1.55rem;font-weight:500;line-height:1.25;margin:0 0 26px;color:var(--navy)}
+.gfx-sit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px}
+.gfx-sit-grid>div{padding-left:18px;border-left:2px solid var(--line)}
+.gfx-sit-grid>div.hl{border-left-color:var(--gold)}
+.gfx-sit-grid b{display:block;font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;color:#8A97AC;font-weight:500;margin-bottom:10px}
+.gfx-sit-grid>div.hl b{color:var(--gold);font-weight:700}
+.gfx-sit-grid>div.hl p{font-weight:400;color:var(--navy)}
+.gfx-sit-grid p{font-size:.94rem;line-height:1.65;color:#3b4a63;font-weight:300;margin:0}
+
 
 /* --- étapes --- */
 .gfx-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:44px}
@@ -197,7 +284,6 @@ body {
 
 
 @media screen and (max-width:991px){
-  .gfx-cols{grid-template-columns:1fr}
   .gfx-steps{grid-template-columns:1fr;gap:34px}
   .gfx-steps>div:not(:last-child):after{right:auto;left:18px;top:auto;bottom:-24px;transform:rotate(135deg)}
   .gfx-perf{padding:24px 20px}
@@ -507,29 +593,6 @@ body {
 <!-- =========================================================
      11. MENTIONS DE RISQUE VISIBLES  (nouveau)
      ========================================================= -->
-<section class="scpi-2025-features_section background-color-bleu-clair"><div class="padding-global"><div class="container-large"><div class="padding-section-medium">
-<div class="gfx w-embed">
-  <h2 class="gfx-h" style="font-size:2.1rem">Un placement qui se pense sur la durée</h2>
-  <p style="font-weight:300;color:#3b4a63;max-width:46em;margin:0 0 32px">Trois points que nous abordons systématiquement avec vous, pour que votre investissement corresponde à vos besoins.</p>
-  <div class="gfx-cols">
-    <div class="gfx-col">
-      <span class="gfx-eyebrow">LIQUIDITÉ</span>
-      <h4>Une revente organisée par la société de gestion</h4>
-      <p>Vos parts se revendent lorsqu&#x27;un nouvel acheteur se présente. Nous vérifions le rythme de collecte de chaque SCPI avant de vous la proposer.</p>
-    </div>
-    <div class="gfx-col">
-      <span class="gfx-eyebrow">HORIZON</span>
-      <h4>8 à 10 ans, le temps du rendement</h4>
-      <p>Les frais d&#x27;entrée s&#x27;amortissent sur les premières années. Passé ce cap, les loyers travaillent pleinement pour vous, année après année.</p>
-    </div>
-    <div class="gfx-col">
-      <span class="gfx-eyebrow">TRANSPARENCE</span>
-      <h4>Vous avez tous les documents</h4>
-      <p>Note d&#x27;information, statuts, document d&#x27;informations clés et dernier bulletin trimestriel : nous vous les transmettons avant toute décision.</p>
-    </div>
-  </div>
-</div>
-</div></div></div></section>
 
 <!-- =========================================================
      12. FORMULAIRE  (Typeform identique + hidden fields Google Ads)
