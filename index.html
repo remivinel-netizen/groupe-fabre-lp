@@ -76,6 +76,65 @@ body {
 }
 .gfx-perf-note{margin:24px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:.8rem;line-height:1.6;color:var(--muted);font-weight:300}
 
+
+/* --- formulaire question par question --- */
+.gfq{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:330px;display:flex;flex-direction:column}
+#gfq-hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.gfq-bar{height:4px;background:#EEF1F6;flex:0 0 auto}
+.gfq-bar span{display:block;height:100%;width:16.6%;background:var(--navy);transition:width .35s cubic-bezier(.4,0,.2,1)}
+#gfq-form{flex:1 1 auto;display:flex;align-items:center;padding:44px 46px 54px}
+.gfq-step{display:none;width:100%;animation:gfqIn .3s ease}
+.gfq-step.is-active{display:block}
+@keyframes gfqIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.gfq-q{display:flex;align-items:flex-start;gap:10px;font-family:'Roboto',sans-serif;font-size:1.22rem;font-weight:500;color:var(--navy);line-height:1.4;margin:0 0 24px}
+.gfq-q .n{flex:0 0 auto;width:20px;height:20px;margin-top:4px;border-radius:4px;background:var(--navy);color:#fff;font-size:.68rem;display:flex;align-items:center;justify-content:center;font-weight:500}
+.gfq-q i{font-style:normal;color:var(--gold);margin-left:4px}
+.gfq-choices{display:grid;gap:10px;max-width:420px;margin-bottom:26px}
+.gfq-choice{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;
+  padding:13px 16px;border:1px solid #C9D3E2;border-radius:8px;background:#F4F7FB;
+  font-family:'Roboto',sans-serif;font-size:1rem;color:var(--navy);transition:all .12s ease;
+}
+.gfq-choice .k{flex:0 0 auto;width:22px;height:22px;border-radius:4px;background:#fff;border:1px solid #C9D3E2;font-size:.72rem;display:flex;align-items:center;justify-content:center;color:#5B6B84}
+.gfq-choice:hover{border-color:var(--navy);background:#EAF0F8}
+.gfq-choice.is-picked{border-color:var(--navy);background:#fff;box-shadow:0 0 0 2px var(--navy) inset}
+.gfq-choice.is-picked .k{background:var(--navy);color:#fff;border-color:var(--navy)}
+.gfq-input{
+  width:100%;max-width:520px;padding:6px 2px 10px;border:0;border-bottom:1.5px solid #C9D3E2;
+  background:transparent;font-family:'Roboto',sans-serif;font-size:1.32rem;color:var(--navy);
+  border-radius:0;transition:border-color .15s ease;
+}
+.gfq-input::placeholder{color:#AEB9CB;font-weight:300}
+.gfq-input:focus{outline:0;border-bottom-color:var(--navy)}
+.gfq-tel{display:flex;align-items:center;gap:12px;max-width:520px}
+.gfq-flag{flex:0 0 auto;font-size:1.05rem;color:#5B6B84;padding-bottom:10px;border-bottom:1.5px solid #C9D3E2}
+.gfq-actions{display:flex;align-items:center;gap:14px;margin-top:26px}
+.gfq-ok,.gfq-send{
+  border:0;border-radius:6px;background:var(--navy);color:#fff;cursor:pointer;
+  font-family:'Roboto',sans-serif;font-weight:500;padding:10px 22px;font-size:.95rem;transition:background .15s ease;
+}
+.gfq-send{padding:12px 30px;font-size:1rem}
+.gfq-ok:hover,.gfq-send:hover{background:#2D3E5F}
+.gfq-ok:disabled,.gfq-send:disabled{opacity:.55;cursor:default}
+.gfq-hint{font-size:.76rem;color:#8A97AC}
+.gfq-hint b{font-weight:500;color:#5B6B84}
+.gfq-err{margin:14px 0 0;font-size:.82rem;color:#C0563A;min-height:1em}
+.gfq-pager{position:absolute;right:18px;bottom:16px;display:flex;gap:6px}
+.gfq-pager button{
+  width:32px;height:28px;border:0;border-radius:5px;background:var(--navy);color:#fff;cursor:pointer;
+  font-size:.9rem;line-height:1;transition:opacity .15s ease;
+}
+.gfq-pager button:disabled{opacity:.35;cursor:default}
+.gfq-done{padding:46px 46px 50px}
+.gfq-done h3{font-family:'Playfair Display',Georgia,serif;font-size:1.9rem;font-weight:500;color:var(--navy);margin:0 0 14px;line-height:1.2}
+.gfq-done p{font-size:1rem;line-height:1.65;color:#3b4a63;font-weight:300;margin:0 0 14px}
+.gfq-done ul{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:10px}
+.gfq-done li{font-size:.97rem;line-height:1.6;color:#3b4a63;font-weight:300;padding-left:20px;position:relative}
+.gfq-done li:before{content:"";position:absolute;left:0;top:.68em;width:10px;height:2px;background:var(--gold)}
+.gfq-book{display:inline-block;padding:14px 30px;border-radius:8px;background:var(--navy);color:#fff;text-decoration:none;font-weight:500;font-size:1rem;transition:background .15s ease}
+.gfq-book:hover{background:#2D3E5F}
+.gfq-done-note{margin-top:20px;font-size:.8rem;color:#8A97AC}
+
 /* --- sélecteur de situations --- */
 .gfx-sit{background:transparent;border:0}
 .gfx-sit-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:30px}
@@ -149,6 +208,12 @@ body {
   .gfx-sit-tab.is-active:after{display:none}
   .gfx-sit-tab span{display:inline;margin-right:10px}
   .gfx-sit-tab.is-active:after{top:0;bottom:auto;height:100%;width:3px;right:auto}
+  .gfq{min-height:300px}
+  #gfq-form{padding:30px 22px 52px}
+  .gfq-q{font-size:1.08rem}
+  .gfq-input{font-size:1.12rem}
+  .gfq-done{padding:30px 22px 34px}
+  .gfq-done h3{font-size:1.5rem}
   .gfx-sit-panel{padding:28px 22px}
   .gfx-sit-grid{grid-template-columns:1fr;gap:22px}
 }
@@ -468,25 +533,106 @@ body {
 <!-- =========================================================
      12. FORMULAIRE  (Typeform identique + hidden fields Google Ads)
      ========================================================= -->
-<section id="typeform-section" class="scpi-2025-typeform_section"><div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div data-w-id="af41d4d7-de72-6dd9-3286-4a02de249b32" style="opacity:0" class="w-layout-grid scpi-2025-typeform_component"><div class="scpi-2025-typeform_text-container"><h2 class="heading-style-h2">Recevoir le guide SCPI</h2><p class="text-size-medium">Vous le recevez par email. Si vous souhaitez en parler, un conseiller vous rappelle sous 24 à 48 heures ouvrées, sans engagement.</p></div><div class="scpi-2025_typeform-container"><div class="scpi-2025_typeform w-embed w-script"><div id="tf-embed" data-tf-live="01JYNG0TQP74PY4PS3330V95G8" style="min-height:540px"></div>
-<script>
-/* Les champs cachés doivent être posés AVANT le chargement de embed.js.
-   Créez d'abord ces hidden fields dans le Typeform : gclid, wbraid, utm_source, utm_campaign, utm_term. */
-(function(){
-  var p = new URLSearchParams(window.location.search);
-  var keys = ['gclid','wbraid','utm_source','utm_campaign','utm_term'];
-  var pairs = [];
-  keys.forEach(function(k){ if(p.get(k)) pairs.push(k + '=' + encodeURIComponent(p.get(k))); });
-  var sit = p.get('situation');
-  if(!sit && window.location.hash.indexOf('#s-') === 0){ sit = window.location.hash.replace('#s-',''); }
-  if(sit) pairs.push('situation=' + encodeURIComponent(sit));
-  if(pairs.length){
-    var el = document.getElementById('tf-embed');
-    if(el) el.setAttribute('data-tf-hidden', pairs.join(','));
-  }
-})();
-</script>
-<script src="https://embed.typeform.com/next/embed.js"></script></div></div></div>
+<section id="typeform-section" class="scpi-2025-typeform_section"><div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div data-w-id="af41d4d7-de72-6dd9-3286-4a02de249b32" style="opacity:0" class="w-layout-grid scpi-2025-typeform_component"><div class="scpi-2025-typeform_text-container"><h2 class="heading-style-h2">Recevoir le guide SCPI</h2><p class="text-size-medium">Vous le recevez par email. Si vous souhaitez en parler, un conseiller vous rappelle sous 24 à 48 heures ouvrées, sans engagement.</p></div><div class="scpi-2025_typeform-container"><div class="scpi-2025_typeform w-embed w-script">
+<div class="gfx">
+  <div class="gfq" id="gfq">
+
+    <div class="gfq-bar"><span id="gfq-bar-fill"></span></div>
+
+    <form id="gfq-form" novalidate data-endpoint="https://hook.eu1.make.com/REMPLACER_PAR_VOTRE_WEBHOOK">
+
+      <!-- 1 -->
+      <div class="gfq-step is-active" data-step="1">
+        <p class="gfq-q"><span class="n">1</span>Quel montant souhaitez-vous investir&nbsp;?<i>*</i></p>
+        <div class="gfq-choices" role="radiogroup" aria-label="Montant">
+          <button type="button" class="gfq-choice" data-value="Moins de 50 000 euros" data-redirect="https://www.groupe-fabre-invest.com/remerciement-scpi-a"><span class="k">A</span>Moins de 50 000 euros</button>
+          <button type="button" class="gfq-choice" data-value="De 50 à 150 000 euros" data-redirect="https://www.groupe-fabre-invest.com/rdvscpi"><span class="k">B</span>De 50 à 150 000 euros</button>
+          <button type="button" class="gfq-choice" data-value="Plus de 150 000 euros" data-redirect="https://www.groupe-fabre-invest.com/rdvscpi"><span class="k">C</span>Plus de 150 000 euros</button>
+        </div>
+        <input type="hidden" name="montant" id="gfq-montant">
+        <input type="hidden" id="gfq-redirect">
+        <div class="gfq-actions"><button type="button" class="gfq-ok">OK</button></div>
+        <p class="gfq-err"></p>
+      </div>
+
+      <!-- 2 -->
+      <div class="gfq-step" data-step="2">
+        <p class="gfq-q"><span class="n">2</span>Votre adresse email<i>*</i></p>
+        <input class="gfq-input" type="email" name="email" id="gfq-email" inputmode="email"
+               autocomplete="email" placeholder="nom@exemple.fr">
+        <div class="gfq-actions"><button type="button" class="gfq-ok">OK</button><span class="gfq-hint">appuyez sur <b>Entrée</b> &#8629;</span></div>
+        <p class="gfq-err"></p>
+      </div>
+
+      <!-- 3 -->
+      <div class="gfq-step" data-step="3">
+        <p class="gfq-q"><span class="n">3</span>Prénom<i>*</i></p>
+        <input class="gfq-input" type="text" name="prenom" id="gfq-prenom"
+               autocomplete="given-name" placeholder="Indiquez votre réponse ici...">
+        <div class="gfq-actions"><button type="button" class="gfq-ok">OK</button><span class="gfq-hint">appuyez sur <b>Entrée</b> &#8629;</span></div>
+        <p class="gfq-err"></p>
+      </div>
+
+      <!-- 4 -->
+      <div class="gfq-step" data-step="4">
+        <p class="gfq-q"><span class="n">4</span>Nom<i>*</i></p>
+        <input class="gfq-input" type="text" name="nom" id="gfq-nom"
+               autocomplete="family-name" placeholder="Indiquez votre réponse ici...">
+        <div class="gfq-actions"><button type="button" class="gfq-ok">OK</button><span class="gfq-hint">appuyez sur <b>Entrée</b> &#8629;</span></div>
+        <p class="gfq-err"></p>
+      </div>
+
+      <!-- 5 -->
+      <div class="gfq-step" data-step="5">
+        <p class="gfq-q"><span class="n">5</span>Votre numéro de téléphone portable<i>*</i></p>
+        <div class="gfq-tel">
+          <span class="gfq-flag">&#127467;&#127479; +33</span>
+          <input class="gfq-input" type="tel" name="telephone" id="gfq-tel" inputmode="tel"
+                 autocomplete="tel" placeholder="06 12 34 56 78">
+        </div>
+        <div class="gfq-actions"><button type="button" class="gfq-ok">OK</button><span class="gfq-hint">appuyez sur <b>Entrée</b> &#8629;</span></div>
+        <p class="gfq-err"></p>
+      </div>
+
+      <!-- 6 -->
+      <div class="gfq-step" data-step="6">
+        <p class="gfq-q"><span class="n">6</span>Quel est votre code postal&nbsp;?<i>*</i></p>
+        <input class="gfq-input" type="text" name="code_postal" id="gfq-cp" inputmode="numeric"
+               autocomplete="postal-code" maxlength="5" placeholder="Saisissez votre réponse ici...">
+        <div class="gfq-actions"><button type="submit" class="gfq-send">Envoyer</button><span class="gfq-hint">appuyez sur <b>Entrée</b> &#8629;</span></div>
+        <p class="gfq-err"></p>
+      </div>
+
+      <input type="hidden" name="situation" id="gfq-situation">
+      <input type="hidden" name="gclid" id="gfq-gclid">
+      <input type="hidden" name="wbraid" id="gfq-wbraid">
+      <input type="hidden" name="utm_source" id="gfq-utm_source">
+      <input type="hidden" name="utm_campaign" id="gfq-utm_campaign">
+      <input type="hidden" name="utm_term" id="gfq-utm_term">
+      <input type="text" name="societe_site" id="gfq-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    </form>
+
+    <div class="gfq-pager">
+      <button type="button" id="gfq-prev" aria-label="Question précédente">&#8963;</button>
+      <button type="button" id="gfq-next" aria-label="Question suivante">&#8964;</button>
+    </div>
+
+    <!-- confirmation -->
+    <div class="gfq-done" id="gfq-done" hidden>
+      <h3>Envie d&#x27;aller plus loin&nbsp;?</h3>
+      <p>Votre guide SCPI vient d&#x27;arriver par email. En parallèle, nous vous invitons à planifier un échange sans engagement&nbsp;:</p>
+      <ul>
+        <li>Analyse personnalisée de votre profil et de vos objectifs</li>
+        <li>Une projection chiffrée du rendement potentiel via notre simulateur SCPI</li>
+      </ul>
+      <a class="gfq-book" href="https://REMPLACER_PAR_VOTRE_LIEN_DE_RESERVATION" target="_blank" rel="noopener">Choisir un créneau</a>
+      <p class="gfq-done-note">Pensez à vérifier vos spams si le guide n&#x27;arrive pas d&#x27;ici quelques minutes.</p>
+    </div>
+
+  </div>
+</div>
+</div></div>
+</div>
 </div></div></div></section>
 
 </div><footer class="scpi-2025-footer background-color-bleu-fonce"><div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div class="scpi-2025-footer_component"><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/64a2c05f636eec16b7a60cce_logo-groupe-fabre-blanc-web.png" loading="lazy" alt="Groupe Fabre" class="scpi-2025-footer_logo"/><div class="scpi-2025-footer_privacy-wrapper"><div class="text-weight-light">©2026 Groupe Fabre Immobilier. Tous droits réservés. SARL FCA Immo, 88 avenue John Fitzgerald Kennedy, 33700 Mérignac. RCS Bordeaux 512 870 007. ORIAS n° 19007945 (<a href="https://www.orias.fr" target="_blank" class="text-color-blanc text-weight-light">www.orias.fr</a>). Conseiller en Investissements Financiers n° F000606, autorité de contrôle : AMF. Carte professionnelle de l&#x27;immobilier n° 33012016000009974. Mode de rémunération : commission et/ou honoraires. Réclamations : contact@groupe-fabre.fr. Communication à caractère promotionnel, ne constituant ni une offre de souscription ni un conseil personnalisé au sens de la réglementation.</div><div class="scpi-2025-footer_privacy-links"><a href="https://groupe-fabre.fr/politique-de-confidentialite/" class="text-color-blanc text-weight-light">Politique de Confidentialité</a><a href="https://groupe-fabre.fr/mentions-legales/" target="_blank" class="text-color-blanc text-weight-light">Mentions légales</a></div></div></div></div></div></div></footer></div><script>
@@ -525,6 +671,147 @@ body {
     initial = window.location.hash.replace('#s-','');
   }
   if(initial) open(initial);
+})();
+</script>
+<script>
+/* Formulaire question par question. Reproduit le parcours en 6 etapes. */
+(function(){
+  var box = document.getElementById('gfq');
+  if(!box) return;
+  var form  = document.getElementById('gfq-form');
+  var steps = Array.prototype.slice.call(form.querySelectorAll('.gfq-step'));
+  var fill  = document.getElementById('gfq-bar-fill');
+  var prev  = document.getElementById('gfq-prev');
+  var next  = document.getElementById('gfq-next');
+  var done  = document.getElementById('gfq-done');
+  var cur = 0;
+
+  var p = new URLSearchParams(window.location.search);
+  ['gclid','wbraid','utm_source','utm_campaign','utm_term'].forEach(function(k){
+    var el = document.getElementById('gfq-' + k);
+    if(el) el.value = p.get(k) || '';
+  });
+  var sit = p.get('situation');
+  if(!sit && window.location.hash.indexOf('#s-') === 0) sit = window.location.hash.replace('#s-','');
+  if(sit) document.getElementById('gfq-situation').value = sit;
+  document.querySelectorAll('.gfq-sit-tab, .gfx-sit-tab').forEach(function(t){
+    t.addEventListener('click', function(){
+      document.getElementById('gfq-situation').value = t.getAttribute('data-sit') || '';
+    });
+  });
+
+  function show(i, focus){
+    cur = Math.max(0, Math.min(steps.length - 1, i));
+    steps.forEach(function(s, k){ s.classList.toggle('is-active', k === cur); });
+    fill.style.width = ((cur + 1) / steps.length * 100) + '%';
+    prev.disabled = (cur === 0);
+    next.disabled = (cur === steps.length - 1);
+    var input = steps[cur].querySelector('.gfq-input');
+    if(input && focus !== false) setTimeout(function(){ input.focus(); }, 60);
+    err('');
+  }
+
+  function err(msg){
+    var e = steps[cur].querySelector('.gfq-err');
+    if(e) e.textContent = msg || '';
+  }
+
+  function valid(){
+    var st = steps[cur];
+    var n = parseInt(st.getAttribute('data-step'), 10);
+    if(n === 1){
+      if(!document.getElementById('gfq-montant').value){ err('Choisissez une réponse'); return false; }
+      return true;
+    }
+    if(n === 2){
+      var v = document.getElementById('gfq-email').value.trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)){ err('Adresse email invalide'); return false; }
+      return true;
+    }
+    if(n === 3 || n === 4){
+      var el = st.querySelector('.gfq-input');
+      if(el.value.trim().length < 2){ err('Merci de compléter ce champ'); return false; }
+      return true;
+    }
+    if(n === 5){
+      var d = document.getElementById('gfq-tel').value.replace(/\D/g,'');
+      if(d.length < 9){ err('Numéro incomplet'); return false; }
+      return true;
+    }
+    if(n === 6){
+      var cp = document.getElementById('gfq-cp').value.trim();
+      if(!/^\d{5}$/.test(cp)){ err('Code postal à 5 chiffres'); return false; }
+      return true;
+    }
+    return true;
+  }
+
+  function forward(){
+    if(!valid()) return;
+    if(cur === steps.length - 1){ send(); return; }
+    show(cur + 1);
+  }
+
+  form.querySelectorAll('.gfq-ok').forEach(function(b){ b.addEventListener('click', forward); });
+  prev.addEventListener('click', function(){ show(cur - 1); });
+  next.addEventListener('click', function(){ if(valid()) show(cur + 1); });
+
+  form.querySelectorAll('.gfq-choice').forEach(function(c){
+    c.addEventListener('click', function(){
+      form.querySelectorAll('.gfq-choice').forEach(function(x){ x.classList.remove('is-picked'); });
+      c.classList.add('is-picked');
+      document.getElementById('gfq-montant').value = c.getAttribute('data-value');
+      document.getElementById('gfq-redirect').value = c.getAttribute('data-redirect') || '';
+      err('');
+      setTimeout(forward, 260);
+    });
+  });
+
+  box.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); forward(); return; }
+    if(steps[cur].getAttribute('data-step') === '1'){
+      var k = e.key.toUpperCase();
+      if(['A','B','C'].indexOf(k) > -1){
+        var idx = {A:0, B:1, C:2}[k];
+        form.querySelectorAll('.gfq-choice')[idx].click();
+      }
+    }
+  });
+
+  document.getElementById('gfq-cp').addEventListener('input', function(){
+    this.value = this.value.replace(/\D/g,'').slice(0,5);
+  });
+
+  function send(){
+    if(document.getElementById('gfq-hp').value) return;
+    var btn = form.querySelector('.gfq-send');
+    btn.disabled = true; btn.textContent = 'Envoi...';
+    var data = {};
+    new FormData(form).forEach(function(v,k){ data[k] = v; });
+    delete data.societe_site;
+    data.page = window.location.pathname + window.location.search;
+
+    fetch(form.dataset.endpoint, {
+      method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)
+    }).then(function(r){
+      if(!r.ok) throw new Error('HTTP ' + r.status);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event:'generate_lead', form:'guide_scpi', situation:data.situation, montant:data.montant});
+      var url = document.getElementById('gfq-redirect').value;
+      if(url){ window.location.href = url; return; }
+      form.hidden = true;
+      document.querySelector('.gfq-pager').hidden = true;
+      fill.style.width = '100%';
+      done.hidden = false;
+      box.scrollIntoView({behavior:'smooth', block:'center'});
+    }).catch(function(){
+      btn.disabled = false; btn.textContent = 'Envoyer';
+      err('L\u2019envoi a échoué. Réessayez ou appelez le 05 57 22 24 90.');
+    });
+  }
+
+  form.addEventListener('submit', function(e){ e.preventDefault(); forward(); });
+  show(0, false);
 })();
 </script>
 <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=64a2af61bf31e6caa9aebb37" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/js/webflow.schunk.36b8fb49256177c8.js" type="text/javascript" integrity="sha384-4abIlA5/v7XaW1HMXKBgnUuhnjBYJ/Z9C1OSg4OhmVw9O3QeHJ/qJqFBERCDPv7G" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/js/webflow.schunk.f383f5e6d5965c7d.js" type="text/javascript" integrity="sha384-QnOp7fbOcrKXZDi7+0fkHJk90FV9G/AoswfyaoltjC7RwYWcCfFhbXP4nXa9dqGz" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/js/webflow.468b3cb0.87169187c2865c35.js" type="text/javascript" integrity="sha384-NofC4ojhV1fT2F0Tk5Og/JkUN6MMAoLggVuNOVO7RPY1YcNC6Ee7e1fl79f/PDCn" crossorigin="anonymous"></script><!-- Google Tag Manager (noscript) -->
