@@ -787,7 +787,7 @@ body {
   });
 
   function send(){
-    if(document.getElementById('gfq-hp').value) return;
+    var suspect = !!document.getElementById('gfq-hp').value;  // rempli = robot probable
     var btn = form.querySelector('.gfq-send');
     btn.disabled = true; btn.textContent = 'Envoi...';
     var data = {};
@@ -796,7 +796,7 @@ body {
     data.page = window.location.pathname + window.location.search;
 
     var endpoint = form.dataset.endpoint || '';
-    var demo = !endpoint || endpoint.indexOf('REMPLACER') > -1;
+    var demo = suspect || !endpoint || endpoint.indexOf('REMPLACER') > -1;
 
     var envoi = demo
       ? Promise.resolve({ok:true})
@@ -809,25 +809,30 @@ body {
       if(demo) console.info('[formulaire] endpoint non configuré, envoi simulé', data);
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({event:'generate_lead', form:'guide_scpi', situation:data.situation, montant:data.montant});
-      function confirmer(){
-        form.hidden = true;
-        var pager = document.querySelector('.gfq-pager');
-        if(pager) pager.hidden = true;
-        fill.style.width = '100%';
-        done.hidden = false;
-      }
+      // 1. confirmation visible tout de suite, quel que soit l'environnement
+      form.hidden = true;
+      var pager = document.querySelector('.gfq-pager');
+      if(pager) pager.hidden = true;
+      fill.style.width = '100%';
+      done.hidden = false;
 
+      // 2. lien de secours renseigné avant toute autre opération
       var url = document.getElementById('gfq-redirect').value;
       if(url){
-        try { window.top.location.href = url; } catch(e) {
-          try { window.location.href = url; } catch(e2) {}
-        }
-        // si la navigation est bloquée (prévisualisation, cadre restreint), on affiche la confirmation
-        setTimeout(function(){ if(!form.hidden){ confirmer(); box.scrollIntoView({behavior:'smooth', block:'center'}); } }, 900);
-        return;
+        var lien = document.querySelector('.gfq-book');
+        if(lien){ lien.setAttribute('href', url); lien.removeAttribute('target'); }
       }
-      confirmer();
-      box.scrollIntoView({behavior:'smooth', block:'center'});
+
+      // 3. confort de lecture, sans bloquer le reste si le navigateur ne le gère pas
+      try { box.scrollIntoView({behavior:'smooth', block:'center'}); } catch(e){}
+
+      // 4. redirection
+      if(url){
+        setTimeout(function(){
+          try { window.top.location.href = url; }
+          catch(e){ try { window.location.href = url; } catch(e2){} }
+        }, 450);
+      }
     }).catch(function(){
       btn.disabled = false; btn.textContent = 'Envoyer';
       err('L\u2019envoi n\u2019a pas abouti. Réessayez, ou appelez-nous au 05 57 22 24 90.');
