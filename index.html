@@ -809,12 +809,24 @@ body {
       if(demo) console.info('[formulaire] endpoint non configuré, envoi simulé', data);
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({event:'generate_lead', form:'guide_scpi', situation:data.situation, montant:data.montant});
+      function confirmer(){
+        form.hidden = true;
+        var pager = document.querySelector('.gfq-pager');
+        if(pager) pager.hidden = true;
+        fill.style.width = '100%';
+        done.hidden = false;
+      }
+
       var url = document.getElementById('gfq-redirect').value;
-      if(url){ window.location.href = url; return; }
-      form.hidden = true;
-      document.querySelector('.gfq-pager').hidden = true;
-      fill.style.width = '100%';
-      done.hidden = false;
+      if(url){
+        try { window.top.location.href = url; } catch(e) {
+          try { window.location.href = url; } catch(e2) {}
+        }
+        // si la navigation est bloquée (prévisualisation, cadre restreint), on affiche la confirmation
+        setTimeout(function(){ if(!form.hidden){ confirmer(); box.scrollIntoView({behavior:'smooth', block:'center'}); } }, 900);
+        return;
+      }
+      confirmer();
       box.scrollIntoView({behavior:'smooth', block:'center'});
     }).catch(function(){
       btn.disabled = false; btn.textContent = 'Envoyer';
