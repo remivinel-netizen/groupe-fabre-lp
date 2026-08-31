@@ -172,102 +172,6 @@ body {
 .gfx-sit-grid>div.hl p{font-weight:400;color:var(--navy)}
 .gfx-sit-grid p{font-size:.94rem;line-height:1.65;color:#3b4a63;font-weight:300;margin:0}
 
-/* --- formulaire question par question --- */
-.gfq{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:330px;display:flex;flex-direction:column}
-#gfq-hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
-.gfq-bar{height:4px;background:#EEF1F6;flex:0 0 auto}
-.gfq-bar span{display:block;height:100%;width:16.6%;background:#1B44AA;transition:width .35s cubic-bezier(.4,0,.2,1)}
-#gfq-form{flex:1 1 auto;display:flex;align-items:center;padding:44px 46px 54px}
-.gfq-step{display:none;width:100%;animation:gfqIn .3s ease}
-.gfq-step.is-active{display:block}
-@keyframes gfqIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.gfq-q{display:flex;align-items:flex-start;gap:10px;font-family:'Roboto',sans-serif;font-size:1.22rem;font-weight:500;color:var(--navy);line-height:1.4;margin:0 0 24px}
-.gfq-q .n{flex:0 0 auto;width:20px;height:20px;margin-top:4px;border-radius:4px;background:#1B44AA;color:#fff;font-size:.68rem;display:flex;align-items:center;justify-content:center;font-weight:500}
-.gfq-q i{font-style:normal;color:var(--gold);margin-left:4px}
-.gfq-choices{display:grid;gap:10px;max-width:420px;margin-bottom:26px}
-.gfq-choice{
-  display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;
-  padding:13px 16px;border:1px solid #C9D3E2;border-radius:8px;background:#F4F7FB;
-  font-family:'Roboto',sans-serif;font-size:1rem;color:var(--navy);transition:all .12s ease;
-}
-.gfq-choice .k{flex:0 0 auto;width:22px;height:22px;border-radius:4px;background:#fff;border:1px solid #C9D3E2;font-size:.72rem;display:flex;align-items:center;justify-content:center;color:#5B6B84}
-.gfq-choice:hover{border-color:#1B44AA;background:#EAF0F8}
-.gfq-choice.is-picked{border-color:#1B44AA;background:#fff;box-shadow:0 0 0 2px #1B44AA inset}
-.gfq-choice.is-picked .k{background:#1B44AA;color:#fff;border-color:#1B44AA}
-.gfq-input{
-  width:100%;max-width:520px;padding:6px 2px 10px;border:0;border-bottom:1.5px solid #C9D3E2;
-  background:transparent;font-family:'Roboto',sans-serif;font-size:1.32rem;color:var(--navy);
-  border-radius:0;transition:border-color .15s ease;
-}
-.gfq-input::placeholder{color:#AEB9CB;font-weight:300}
-.gfq-input:focus{outline:0;border-bottom-color:#1B44AA}
-.gfq-tel{display:flex;align-items:center;gap:12px;max-width:520px}
-.gfq-cc{
-  flex:0 0 auto;appearance:none;border:0;border-bottom:1.5px solid #C9D3E2;background:transparent;
-  font-family:'Roboto',sans-serif;font-size:1.05rem;color:#5B6B84;padding:6px 20px 10px 2px;cursor:pointer;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235B6B84' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 2px center;
-}
-.gfq-cc:focus{outline:0;border-bottom-color:#1B44AA}
-.gfq-actions{display:flex;align-items:center;gap:14px;margin-top:26px}
-.gfq-ok,.gfq-send{
-  border:0;border-radius:5px;background:#1B44AA;color:#fff;cursor:pointer;
-  font-family:'Roboto',sans-serif;font-weight:700;padding:11px 24px;font-size:.95rem;
-  letter-spacing:.01em;transition:background .15s ease;
-}
-.gfq-send{padding:12px 30px;font-size:1rem;font-weight:500}
-.gfq-ok:hover,.gfq-send:hover{background:#163890}
-.gfq-ok:active,.gfq-send:active{background:#122F7C}
-.gfq-ok:disabled,.gfq-send:disabled{opacity:.55;cursor:default}
-.gfq-hint{font-size:.76rem;color:#8A97AC}
-.gfq-hint b{font-weight:500;color:#5B6B84}
-.gfq-err{margin:14px 0 0;font-size:.82rem;color:#C0563A;min-height:1em}
-.gfq-pager{position:absolute;right:18px;bottom:16px;display:flex;gap:6px}
-.gfq-pager button{
-  width:34px;height:30px;border:0;border-radius:5px;background:#1B44AA;color:#fff;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;padding:0;transition:background .15s ease;
-}
-.gfq-pager button svg{width:13px;height:9px;display:block}
-.gfq-pager button:hover:not(:disabled){background:#163890}
-.gfq-pager button:disabled{background:#C8D2EA;color:#93A9D6;cursor:default}
-.gfq-wait{padding:44px 46px;font-size:1.05rem;color:#3b4a63;font-weight:300}
-
-.gfx-perf-row .val sup{font-size:.55em;color:var(--gold);top:-.7em;position:relative}
-
-/* --- sélecteur de situations --- */
-.gfx-sit{background:transparent;border:0}
-.gfx-sit-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:30px}
-.gfx-sit-tab{
-  appearance:none;background:#fff;border:1px solid var(--line);border-radius:12px;
-  padding:24px 22px;text-align:left;cursor:pointer;font-family:'Roboto',sans-serif;font-size:.97rem;
-  color:#5B6B84;line-height:1.35;position:relative;
-  transition:background .15s ease,color .15s ease,border-color .15s ease,transform .15s ease;
-}
-.gfx-sit-tab span{
-  display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;
-  background:#EEF1F6;color:var(--navy);font-family:'Playfair Display',Georgia,serif;
-  font-size:1.1rem;letter-spacing:0;margin-bottom:16px;transition:background .15s ease,color .15s ease;
-}
-.gfx-sit-tab:hover{border-color:#B9C4D4;transform:translateY(-2px)}
-.gfx-sit-tab.is-active{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:500}
-.gfx-sit-tab.is-active span{background:var(--gold);color:#fff}
-.gfx-sit-tab.is-active:after{
-  content:"";position:absolute;left:50%;bottom:-10px;width:18px;height:18px;
-  background:var(--navy);transform:translateX(-50%) rotate(45deg);
-}
-.gfx-sit-tab:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
-.gfx-sit-panel{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 36px}
-.gfx-sit-panel.is-active{display:block}
-.gfx-sit-panel h3{font-family:'Playfair Display',Georgia,serif;font-size:1.55rem;font-weight:500;line-height:1.25;margin:0 0 26px;color:var(--navy)}
-.gfx-sit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px}
-.gfx-sit-grid>div{padding-left:18px;border-left:2px solid var(--line)}
-.gfx-sit-grid>div.hl{border-left-color:var(--gold)}
-.gfx-sit-grid b{display:block;font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;color:#8A97AC;font-weight:500;margin-bottom:10px}
-.gfx-sit-grid>div.hl b{color:var(--gold);font-weight:700}
-.gfx-sit-grid>div.hl p{font-weight:400;color:var(--navy)}
-.gfx-sit-grid p{font-size:.94rem;line-height:1.65;color:#3b4a63;font-weight:300;margin:0}
-
-
 /* --- étapes --- */
 .gfx-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:44px}
 .gfx-steps>div{position:relative;border-top:3px solid var(--navy);padding-top:26px}
@@ -288,25 +192,54 @@ body {
 
 
 @media screen and (max-width:991px){
+  /* --- étapes --- */
   .gfx-steps{grid-template-columns:1fr;gap:34px}
-  .gfx-steps>div:not(:last-child):after{right:auto;left:18px;top:auto;bottom:-24px;transform:rotate(135deg)}
-  .gfx-perf{padding:24px 20px}
-  .gfx-perf-row{grid-template-columns:1fr 78px;gap:10px 14px}
-  .gfx-perf-row .lbl{grid-column:1/-1;font-size:.92rem}
-  .gfx-perf-gap{margin-left:0}
+  .gfx-steps>div:not(:last-child):after{right:auto;left:50%;top:auto;bottom:-24px;transform:translateX(-50%) rotate(135deg)}
+
+  /* --- comparaison de performance --- */
+  .gfx-perf{padding:24px 18px}
+  .gfx-perf-row{grid-template-columns:1fr auto;gap:8px 12px;align-items:center}
+  .gfx-perf-row .lbl{grid-column:1/-1;font-size:.92rem;margin-bottom:2px}
+  .gfx-perf-row .track{height:28px}
+  .gfx-perf-row .val{font-size:1.2rem;white-space:nowrap}
+  .gfx-perf-row.is-us .val{font-size:1.4rem}
+  .gfx-perf-gap{margin-left:0;display:block;text-align:center}
+
+  /* --- sélecteur de situations : pastille ronde et centrée --- */
   .gfx-sit-nav{grid-template-columns:1fr;gap:12px}
-  .gfx-sit-tab{display:flex;align-items:center;gap:16px;padding:16px 20px}
-  .gfx-sit-tab span{margin-bottom:0;width:34px;height:34px;flex:0 0 auto}
+  .gfx-sit-tab{display:flex;align-items:center;gap:14px;padding:15px 18px;text-align:left}
+  .gfx-sit-tab span{
+    display:flex;align-items:center;justify-content:center;
+    width:36px;height:36px;flex:0 0 36px;margin:0;line-height:1;
+  }
   .gfx-sit-tab.is-active:after{display:none}
-  .gfx-sit-tab span{display:inline;margin-right:10px}
-  .gfx-sit-tab.is-active:after{top:0;bottom:auto;height:100%;width:3px;right:auto}
+  .gfx-sit-panel{padding:26px 20px}
+  .gfx-sit-panel h3{font-size:1.32rem}
+  .gfx-sit-grid{grid-template-columns:1fr;gap:20px}
+
+  /* --- formulaire : tout centré --- */
   .gfq{min-height:300px}
-  #gfq-form{padding:30px 22px 52px}
-  .gfq-q{font-size:1.08rem}
-  .gfq-input{font-size:1.12rem}
-  .gfq-wait{padding:30px 22px}
-  .gfx-sit-panel{padding:28px 22px}
-  .gfx-sit-grid{grid-template-columns:1fr;gap:22px}
+  #gfq-form{padding:32px 20px 56px;justify-content:center}
+  .gfq-step{text-align:center}
+  .gfq-q{justify-content:center;text-align:center;font-size:1.08rem;gap:9px}
+  .gfq-q .n{margin-top:3px}
+  .gfq-choices{max-width:330px;margin-left:auto;margin-right:auto}
+  .gfq-choice{text-align:left}
+  .gfq-input{font-size:1.1rem;max-width:330px;margin-left:auto;margin-right:auto;text-align:center}
+  .gfq-tel{justify-content:center;max-width:330px;margin-left:auto;margin-right:auto}
+  .gfq-tel .gfq-input{text-align:left}
+  .gfq-actions{justify-content:center;flex-wrap:wrap;gap:10px}
+  .gfq-err{text-align:center}
+  .gfq-pager{right:50%;transform:translateX(50%)}
+  .gfq-wait{padding:32px 20px;text-align:center}
+}
+@media screen and (max-width:479px){
+  .gfx-sit-tab{font-size:.92rem;padding:14px 16px}
+  .gfq-q{font-size:1rem}
+  .gfq-hint{display:none}
+  .gfq-ok,.gfq-send{width:100%;max-width:330px;padding:14px 22px}
+  .gfx-perf-row .val{font-size:1.05rem}
+  .gfx-perf-row.is-us .val{font-size:1.25rem}
 }
 @media (prefers-reduced-motion:reduce){.gfx *{transition:none!important;animation:none!important}}
 </style></div><div class="main-wrapper">
@@ -592,7 +525,7 @@ body {
 <!-- =========================================================
      10. TÉMOIGNAGES  (conservés à l'identique)
      ========================================================= -->
-<section class="scpi-2025-testimonial_section background-color-bleu-clair"><div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div class="w-layout-grid scpi-2025-testimonial_component"><div class="scpi-2025-testimonial_heading-wrapper"><h2 data-w-id="8c2d2924-20b1-05b1-6319-bcfbaad4061b" style="opacity:0" class="heading-style-h2">L’expérience Groupe Fabre, par ceux qui la vivent</h2></div><div data-w-id="ad481893-de66-77f1-1a88-9533bde61d0e" style="opacity:0" class="scpi-2025-testimonial_card-wrapper"><div class="scpi-2025-testimonial_card"><p class="text-weight-light">Ayant des fonds à réinvestir après une vente, nous avons choisi la formule SCPI et fait confiance au Groupe Fabre pour nous accompagner dans la démarche. Notre conseiller, Maël, nous a guidés dans les choix d’investissements et aidés pour la partie administrative. Nous recommandons sans réserve cette société.</p><div class="scpi-2025-testimonial_card-client"><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a885502472e1e4ea41e1b_client-pp-1.png" loading="eager" alt=""/><div class="text-size-regular">Sébastien P.</div></div></div><div class="scpi-2025-testimonial_card"><p class="text-weight-light">Convivialité, professionnalisme, empathie, sérieux, sont les qualités évidentes prodiguées au sein du Groupe Fabre et nécéssaires à l’instauration d’une relation commerciale pérenne.</p><div class="scpi-2025-testimonial_card-client"><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8855b7f80153bb805b79_client-pp-3.png" loading="eager" alt=""/><div class="text-size-regular">Bernard C.</div></div></div><div class="scpi-2025-testimonial_card"><p class="text-weight-light">Souhaitant investir dans les SCPI avec peu de connaissances, j’ai reçu de la part du Groupe Fabre un accueil et des réponses précises à mes questions. Le conseiller a pris son temps et fait preuve de beaucoup de disponibilité. Mon dossier est désormais bien constitué.</p><div class="scpi-2025-testimonial_card-client"><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a885509d00f767fb716fd_client-pp-2.png" loading="eager" alt=""/><div class="text-size-regular">Françoise R.</div></div></div></div></div></div></div></div></section>
+<section class="scpi-2025-testimonial_section background-color-bleu-clair"><div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div class="w-layout-grid scpi-2025-testimonial_component"><div class="scpi-2025-testimonial_heading-wrapper"><h2 data-w-id="8c2d2924-20b1-05b1-6319-bcfbaad4061b" style="opacity:0" class="heading-style-h2">L’expérience Groupe Fabre, par ceux qui la vivent</h2></div><div data-w-id="ad481893-de66-77f1-1a88-9533bde61d0e" style="opacity:0" class="scpi-2025-testimonial_card-wrapper"><div class="scpi-2025-testimonial_card"><p class="text-weight-light">Ayant des fonds à réinvestir après une vente, nous avons choisi la formule SCPI et fait confiance au Groupe Fabre pour nous accompagner dans la démarche. Notre conseiller, <strong>Maël, nous a guidés dans les choix d’investissements et aidés pour la partie administrative.</strong> Nous recommandons sans réserve cette société.</p><div class="scpi-2025-testimonial_card-client"><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a885502472e1e4ea41e1b_client-pp-1.png" loading="eager" alt=""/><div class="text-size-regular">Sébastien P.</div></div></div><div class="scpi-2025-testimonial_card"><p class="text-weight-light"><strong>Convivialité, professionnalisme, empathie, sérieux</strong>, sont les qualités évidentes prodiguées au sein du Groupe Fabre et nécéssaires à l’instauration d’une relation commerciale pérenne.</p><div class="scpi-2025-testimonial_card-client"><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a8855b7f80153bb805b79_client-pp-3.png" loading="eager" alt=""/><div class="text-size-regular">Bernard C.</div></div></div><div class="scpi-2025-testimonial_card"><p class="text-weight-light">Souhaitant investir dans les SCPI avec peu de connaissances, j’ai reçu de la part du Groupe Fabre un accueil et <strong>des réponses précises à mes questions.</strong> Le conseiller a pris son temps et fait preuve de beaucoup de disponibilité. <strong>Mon dossier est désormais bien constitué.</strong></p><div class="scpi-2025-testimonial_card-client"><img src="https://cdn.prod.website-files.com/64a2af61bf31e6caa9aebb37/685a885509d00f767fb716fd_client-pp-2.png" loading="eager" alt=""/><div class="text-size-regular">Françoise R.</div></div></div></div></div></div></div></div></section>
 
 <!-- =========================================================
      11. MENTIONS DE RISQUE VISIBLES  (nouveau)
