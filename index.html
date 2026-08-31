@@ -82,14 +82,14 @@ body {
 #gfq-hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
 .gfq-bar{height:4px;background:#EEF1F6;flex:0 0 auto}
 .gfq-bar span{display:block;height:100%;width:16.6%;background:#1B44AA;transition:width .35s cubic-bezier(.4,0,.2,1)}
-#gfq-form{flex:1 1 auto;display:flex;align-items:center;padding:44px 46px 54px}
-.gfq-step{display:none;width:100%;animation:gfqIn .3s ease}
+#gfq-form{flex:1 1 auto;display:flex;align-items:center;justify-content:center;padding:44px 46px 54px}
+.gfq-step{display:none;width:100%;text-align:center;animation:gfqIn .3s ease}
 .gfq-step.is-active{display:block}
 @keyframes gfqIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.gfq-q{display:flex;align-items:flex-start;gap:10px;font-family:'Roboto',sans-serif;font-size:1.22rem;font-weight:500;color:var(--navy);line-height:1.4;margin:0 0 24px}
+.gfq-q{display:flex;align-items:flex-start;justify-content:center;text-align:center;gap:10px;font-family:'Roboto',sans-serif;font-size:1.22rem;font-weight:500;color:var(--navy);line-height:1.4;margin:0 0 26px}
 .gfq-q .n{flex:0 0 auto;width:20px;height:20px;margin-top:4px;border-radius:4px;background:#1B44AA;color:#fff;font-size:.68rem;display:flex;align-items:center;justify-content:center;font-weight:500}
 .gfq-q i{font-style:normal;color:var(--gold);margin-left:4px}
-.gfq-choices{display:grid;gap:10px;max-width:420px;margin-bottom:26px}
+.gfq-choices{display:grid;gap:10px;max-width:420px;margin:0 auto 26px;text-align:left}
 .gfq-choice{
   display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;
   padding:13px 16px;border:1px solid #C9D3E2;border-radius:8px;background:#F4F7FB;
@@ -100,13 +100,13 @@ body {
 .gfq-choice.is-picked{border-color:#1B44AA;background:#fff;box-shadow:0 0 0 2px #1B44AA inset}
 .gfq-choice.is-picked .k{background:#1B44AA;color:#fff;border-color:#1B44AA}
 .gfq-input{
-  width:100%;max-width:520px;padding:6px 2px 10px;border:0;border-bottom:1.5px solid #C9D3E2;
+  width:100%;max-width:520px;margin:0 auto;padding:6px 2px 10px;border:0;border-bottom:1.5px solid #C9D3E2;
   background:transparent;font-family:'Roboto',sans-serif;font-size:1.32rem;color:var(--navy);
-  border-radius:0;transition:border-color .15s ease;
+  border-radius:0;text-align:center;transition:border-color .15s ease;
 }
 .gfq-input::placeholder{color:#AEB9CB;font-weight:300}
 .gfq-input:focus{outline:0;border-bottom-color:#1B44AA}
-.gfq-tel{display:flex;align-items:center;gap:12px;max-width:520px}
+.gfq-tel{display:flex;align-items:center;justify-content:center;gap:12px;max-width:520px;margin:0 auto}
 .gfq-cc{
   flex:0 0 auto;appearance:none;border:0;border-bottom:1.5px solid #C9D3E2;background:transparent;
   font-family:'Roboto',sans-serif;font-size:1.05rem;color:#5B6B84;padding:6px 20px 10px 2px;cursor:pointer;
@@ -114,7 +114,8 @@ body {
   background-repeat:no-repeat;background-position:right 2px center;
 }
 .gfq-cc:focus{outline:0;border-bottom-color:#1B44AA}
-.gfq-actions{display:flex;align-items:center;gap:14px;margin-top:26px}
+.gfq-tel .gfq-input{text-align:left;margin:0}
+.gfq-actions{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:26px}
 .gfq-ok,.gfq-send{
   border:0;border-radius:5px;background:#1B44AA;color:#fff;cursor:pointer;
   font-family:'Roboto',sans-serif;font-weight:700;padding:11px 24px;font-size:.95rem;
@@ -126,7 +127,7 @@ body {
 .gfq-ok:disabled,.gfq-send:disabled{opacity:.55;cursor:default}
 .gfq-hint{font-size:.76rem;color:#8A97AC}
 .gfq-hint b{font-weight:500;color:#5B6B84}
-.gfq-err{margin:14px 0 0;font-size:.82rem;color:#C0563A;min-height:1em}
+.gfq-err{margin:14px 0 0;font-size:.82rem;color:#C0563A;min-height:1em;text-align:center}
 .gfq-pager{position:absolute;right:18px;bottom:16px;display:flex;gap:6px}
 .gfq-pager button{
   width:34px;height:30px;border:0;border-radius:5px;background:#1B44AA;color:#fff;cursor:pointer;
@@ -194,7 +195,7 @@ body {
 @media screen and (max-width:991px){
   /* --- étapes --- */
   .gfx-steps{grid-template-columns:1fr;gap:34px}
-  .gfx-steps>div:not(:last-child):after{right:auto;left:50%;top:auto;bottom:-24px;transform:translateX(-50%) rotate(135deg)}
+  .gfx-steps>div:not(:last-child):after{display:none}
 
   /* --- comparaison de performance --- */
   .gfx-perf{padding:24px 18px}
